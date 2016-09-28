@@ -2,6 +2,7 @@
  * Created by Zoho on 16/9/28.
  */
 import { DEFAULT_STORE } from './rootReducer';
+import { COMPILE_MARKDOWN } from '../actions/actionTypes';
 
 import marked from '../../lib/markedSetting';
 
@@ -11,7 +12,7 @@ import marked from '../../lib/markedSetting';
  */
 export function compileMarkdownReducer(state = DEFAULT_STORE.textContent, action) {
 	switch (action.type) {
-		case 'COMPILE_MARKDOWN':
+		case COMPILE_MARKDOWN:
 			return marked(action.payload);
 		default:
 			return state;

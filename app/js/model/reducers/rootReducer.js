@@ -4,12 +4,12 @@
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
 
-import { compileMarkdownReducer as textContent } from './markdownCompilerReducer';
+import { compileMarkdownReducer as textContent } from './compileMarkdownReducer';
 
 /******************** Data Structure of Store *******************/
 export const DEFAULT_STORE = {
 	// todo Default store
-	textContent: '#EverlinkMD'
+	textContent: '# EverlinkMD'
 };
 
 /**********************************************************************************/
