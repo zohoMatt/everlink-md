@@ -1,10 +1,18 @@
 /**======================================================**/
 /**                       Layout                         **/
 /**======================================================**/
+#app {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
 #main-page {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
+  height: 100%;
 }
 
 
@@ -12,23 +20,19 @@
 /**                      Editor                          **/
 /**======================================================**/
 #md-editor {
-  width: 50%;
+  width: 55%;
   padding: 10px;
 }
 
-//#md-editor textarea {
-//  width: 100%;
-//  height: 600px;
-//
-//  outline: none;
-//}
+.ReactCodeMirror {
+  height: 100%;
+}
 
 /**======================================================**/
 /**                      Preview                         **/
 /**======================================================**/
 #md-preview {
   width: 50%;
-  height: 565px;
 
   margin: 10px;
   padding: 20px;

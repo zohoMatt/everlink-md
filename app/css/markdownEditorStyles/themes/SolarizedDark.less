@@ -1,0 +1,96 @@
+/**
+ * NAME: solarized-dark
+ */
+
+@import "../../lib";
+
+/******************** Background/Default text *******************/
+// Editor background
+.CodeMirror {
+  background-color: #002029;
+  //background-color: white;
+  font-family: @SANS_FONT_2;
+  font-size: 16px;
+  color: #819090;
+}
+
+/******************** Titles *******************/
+/**
+ * Functions and mixins
+ */
+// Basic title style according to levels
+.basic-header-font(@level) {
+  font-family: @SANS_FONT_1;
+  font-weight: bold;
+  font-size: 24px - @level * 2px;
+  color: #c9156f;
+}
+
+// Generate title style using loops
+.generate-title-style(@i) when (@i > 0) {
+  .cm-s-solarized-dark .cm-header.cm-header-@{i} {
+    .basic-header-font(@i);
+  }
+  .generate-title-style(@i - 1);       // looping
+}
+
+/**
+ * like:
+ * ### header
+ * ## header
+ */
+
+// Normal title
+.cm-s-solarized-dark .cm-header {
+  .basic-header-font(5);
+}
+
+// Title of each level
+.generate-title-style(5);
+
+/******************** Key points *******************/
+/**
+ * like:
+ * * point1
+ * * point2
+ */
+.cm-s-solarized-dark .cm-variable-2 {
+  font-family: @SANS_FONT_2;
+  color: #1d9090;
+}
+
+/******************** Special text *******************/
+/**
+ * Bold and italic
+ */
+.cm-s-solarized-dark .cm-strong {
+  font-weight: bold;
+  color: #728c00;
+}
+
+.cm-s-solarized-dark .cm-em {
+  font-style: italic;
+}
+
+/******************** Links *******************/
+/**
+ * Text links
+ */
+.cm-s-solarized-dark .cm-link {
+  text-decoration: underline;
+  color: #597085;
+}
+.cm-s-solarized-dark .cm-url {
+  color: #59717b;
+}
+
+/******************** Code block *******************/
+.cm-s-solarized-dark .cm-comment {
+  background-color: #00161b;
+  color: #0664CB;
+}
+
+/******************** Quote *******************/
+.cm-s-solarized-dark .cm-quote {
+  color: #B03705;
+}

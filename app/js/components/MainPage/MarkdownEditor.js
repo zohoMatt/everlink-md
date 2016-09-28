@@ -24,8 +24,9 @@ export default class MarkdownEditor extends React.Component {
 
     render() {
     	const codeMirrorOptions = {
-			lineNumbers: true,
-			mode: 'markdown'
+			lineNumbers: false,
+			mode: 'markdown',
+			theme: 'solarized-dark'
 		};
         return (
         	<div id="md-editor">
