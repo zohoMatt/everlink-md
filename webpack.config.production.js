@@ -13,7 +13,7 @@ const config = validate(merge(baseConfig, {
 
 	entry: [
 		'babel-polyfill',
-		'./app/index'
+		'./app/js/app'
 	],
 
 	output: {
@@ -26,8 +26,7 @@ const config = validate(merge(baseConfig, {
 				test: /\.less$/,
 				loader: ExtractTextPlugin.extract(
 					'style-loader',
-					'css-loader',
-					'less-loader'
+					'css-loader!less-loader'
 				)
 			}
 		]
