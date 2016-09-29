@@ -1,6 +1,6 @@
 {
   "name": "everlink-md",
-  "productName": "ElectronReact",
+  "productName": "EverlinkMD",
   "version": "0.1.0",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "main": "main.js",
@@ -29,24 +29,20 @@
     "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
   },
   "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
+    "name": "zohoFrank",
+    "email": "zoho10@outlook.com",
+    "url": "https://zohofrank.github.io/"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
+    "url": "https://github.com/zohoFrank/everlink-md/issues"
   },
   "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "react-router",
-    "flux",
-    "webpack",
-    "react-hot"
+    "markdown",
+    "evernote",
+    "electron"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
+  "homepage": "https://github.com/zohoFrank/everlink-md#readme",
   "devDependencies": {
     "asar": "^0.12.2",
     "babel-core": "^6.14.0",
