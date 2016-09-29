@@ -40,24 +40,40 @@
 
   background-color: white;
 
-  overflow: scroll;
+  overflow: auto;
 }
 
 /**======================================================**/
 /**                  Action panels                       **/
 /**======================================================**/
-#editor-buttons {
+/******************** Functions *******************/
+.normal-panel-style {
   position: absolute;
-  right: 50%;
   z-index: 10;
 
   height: 40px;
-
   padding: 10px;
 
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+}
+/*****************************************/
+
+#editor-buttons {
+  .normal-panel-style;
+  right: 51%;
+}
+
+#preview-buttons {
+  .normal-panel-style;
+  top: 1%;
+  right: 2%;
 }
 
 .panel-button {
@@ -65,12 +81,11 @@
   width: 30px;
   height: 30px;
 
-  margin: 0 10px;
+  margin: 0 5px;
   z-index: 15;
 
-  font-size: 2em;
-  color: #552557;
-
+  font-size: 1.5em;
+  color: #833885;
   cursor: pointer;
 
   &:hover {

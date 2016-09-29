@@ -27,11 +27,19 @@ export default class MarkdownEditor extends React.Component {
 		}
 	}
 
+	componentDidMount() {
+		// get instance to use official manual
+		const codeMirrorInstance = this.codeMirrorInstance.getCodeMirror();
+		codeMirrorInstance.on('scroll', (instance) => {
+		});
+	}
+
     render() {
     	const codeMirrorOptions = {
 			lineNumbers: false,
 			mode: 'markdown',
-			theme: 'solarized-dark'
+			theme: 'solarized-dark',
+			lineWrapping: true
 		};
 		const buttonGroup = [
 			<InsertPictureButton key={uuid.v1()}/>,
@@ -42,7 +50,10 @@ export default class MarkdownEditor extends React.Component {
 				<ActionPanel
 					idName="editor"
 					buttonGroup={buttonGroup}/>
-				<Codemirror value={this.state.code}
+
+				{/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
+				<Codemirror ref={(ref) => { this.codeMirrorInstance = ref}}
+							value={this.state.code}
 							onChange={this.updateCode.bind(this)}
 							options={codeMirrorOptions} />
 			</div>

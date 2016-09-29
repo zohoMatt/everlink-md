@@ -3,8 +3,6 @@
  */
 import React from 'react';
 
-import { Tooltip } from 'antd';
-
 export default class EditorActionPanel extends React.Component {
 
     render() {
