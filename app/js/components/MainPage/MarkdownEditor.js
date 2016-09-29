@@ -30,9 +30,6 @@ export default class MarkdownEditor extends React.Component {
 		};
         return (
         	<div id="md-editor">
-				{/*<textarea name="md-raw" id="md-content"*/}
-						  {/*onChange={this.dispatchManager.bind(this)}*/}
-						  {/*onBlur={this.blurHandler.bind(this)}># EverlinkMD</textarea>*/}
 				<Codemirror value={this.state.code}
 							onChange={this.updateCode.bind(this)}
 							options={codeMirrorOptions} />

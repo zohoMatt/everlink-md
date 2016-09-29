@@ -15,8 +15,8 @@ import marked from '../../lib/markedSetting';
 export default class PreviewWindow extends React.Component {
 
     render() {
-    	const htmlContent = marked(this.props.textContent);
-		console.log(htmlContent);
+		console.log(this.props.textContent);
+    	const htmlContent = marked(this.props.textContent || '# EverlinkMD');
         return (
         	<div id="md-preview">
 				<div dangerouslySetInnerHTML={{__html: htmlContent}} />

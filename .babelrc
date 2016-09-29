@@ -8,7 +8,8 @@
     "production": {
       "presets": ["react-optimize"],
       "plugins": [
-        "babel-plugin-dev-expression"
+        "babel-plugin-dev-expression",
+		"transform-decorators-legacy"
       ]
     },
     "development": {
