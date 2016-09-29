@@ -14,7 +14,6 @@ import MainPage from './components/MainPage';
 const app = document.getElementById('app');
 const history = syncHistoryWithStore(hashHistory, store);
 
-// todo Root path component
 ReactDOM.render(
 	<Provider store={store}>
 		<Router history={history}>

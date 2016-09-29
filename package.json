@@ -99,6 +99,7 @@
     "spectron": "^3.3.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "uuid": "^2.0.3",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2",

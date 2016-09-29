@@ -8,7 +8,6 @@ import { compileMarkdownReducer as textContent } from './compileMarkdownReducer'
 
 /******************** Data Structure of Store *******************/
 export const DEFAULT_STORE = {
-	// todo Default store
 	textContent: '# EverlinkMD'
 };
 

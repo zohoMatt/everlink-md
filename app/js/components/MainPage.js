@@ -1,8 +1,6 @@
 /**
  * Created by Zoho on 16/9/28.
  */
-// todo
-
 import React from 'react';
 
 import MarkdownEditor from './MainPage/MarkdownEditor';

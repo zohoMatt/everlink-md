@@ -1,15 +1,20 @@
 /**
  * Created by Zoho on 16/9/28.
  */
-// todo
-
 import React from 'react';
 import { connect } from 'react-redux';
 
 import { compileMarkdownAction } from '../../model/actions/compileMarkdownAction';
+
+import ActionPanel from './ActionPanel';
+import InsertLinkButton from './ActionPanel/InsertLinkButton';
+import InsertPictureButton from './ActionPanel/InsertPictureButton';
+
 // CodeMirror add-ons
 const Codemirror = require('react-codemirror');
 require('codemirror/mode/markdown/markdown');
+// uuid
+import uuid from 'uuid';
 
 @connect(() => {
 	return {};
@@ -28,8 +33,15 @@ export default class MarkdownEditor extends React.Component {
 			mode: 'markdown',
 			theme: 'solarized-dark'
 		};
+		const buttonGroup = [
+			<InsertPictureButton key={uuid.v1()}/>,
+			<InsertLinkButton key={uuid.v1()}/>
+		];
         return (
         	<div id="md-editor">
+				<ActionPanel
+					idName="editor"
+					buttonGroup={buttonGroup}/>
 				<Codemirror value={this.state.code}
 							onChange={this.updateCode.bind(this)}
 							options={codeMirrorOptions} />

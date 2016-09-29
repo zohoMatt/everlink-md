@@ -43,5 +43,40 @@
   overflow: scroll;
 }
 
+/**======================================================**/
+/**                  Action panels                       **/
+/**======================================================**/
+#editor-buttons {
+  position: absolute;
+  right: 50%;
+  z-index: 10;
+
+  height: 40px;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.panel-button {
+  display: block;
+  width: 30px;
+  height: 30px;
+
+  margin: 0 10px;
+  z-index: 15;
+
+  font-size: 2em;
+  color: #552557;
+
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(2);
+  }
+}
+
 
 
