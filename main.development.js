@@ -6,7 +6,7 @@ let mainWindow = null;
 
 
 if (process.env.NODE_ENV === 'development') {
-	require('electron-debug')(); // eslint-disable-line global-require
+	require('electron-debug')();
 }
 
 
@@ -16,7 +16,7 @@ app.on('window-all-closed', () => {
 
 const installExtensions = async () => {
 	if (process.env.NODE_ENV === 'development') {
-		const installer = require('electron-devtools-installer'); // eslint-disable-line global-require
+		const installer = require('electron-devtools-installer');
 
 		const extensions = [
 			'REACT_DEVELOPER_TOOLS',
@@ -26,13 +26,16 @@ const installExtensions = async () => {
 		for (const name of extensions) {
 			try {
 				await installer.default(installer[name], forceDownload);
-			} catch (e) {} // eslint-disable-line
+			} catch (e) {}
 		}
 	}
 };
 
 app.on('ready', async () => {
 	await installExtensions();
+
+	console.log(`!!!${process.env.NODE_ENV}!!!\n\n\n\n`);
+
 
 	mainWindow = new BrowserWindow({
 		show: false,

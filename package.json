@@ -29,20 +29,20 @@
     "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
   },
   "author": {
-    "name": "zohoFrank",
+    "name": "zohoMatt",
     "email": "zoho10@outlook.com",
-    "url": "https://zohofrank.github.io/"
+    "url": "https://zohoMatt.github.io/"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zohoFrank/everlink-md/issues"
+    "url": "https://github.com/zohoMatt/everlink-md/issues"
   },
   "keywords": [
     "markdown",
     "evernote",
     "electron"
   ],
-  "homepage": "https://github.com/zohoFrank/everlink-md#readme",
+  "homepage": "https://github.com/zohoMatt/everlink-md#readme",
   "devDependencies": {
     "asar": "^0.12.2",
     "babel-core": "^6.14.0",
