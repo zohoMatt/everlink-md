@@ -8,6 +8,19 @@ A desktop application for combining Markdown with Evernote.
 ### On developing...  
 This editor is not fully functional yet.
 
+### How to start
+#### Development
+1. Just `yarn` to install all packages.  
+2. `yarn run dev` to start hot server and live-loading.
+> If main window fails, remember to **check the Internet connection** to Google.
+Because in development mode we need to download React & redux dev-tools for chrome.
+
+#### Distribution
+* MacOS
+
+* Windows
+
+
 ---
 ### Future Plans
 
