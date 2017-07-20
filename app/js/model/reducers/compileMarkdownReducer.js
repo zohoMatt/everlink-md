@@ -1,7 +1,7 @@
 /**
  * Created by Zoho on 16/9/28.
  */
-import { DEFAULT_STORE } from './rootReducer';
+import { DEFAULT_STORE} from "../store/developerSpecifiedData";
 import { COMPILE_MARKDOWN } from '../actions/actionTypes';
 
 import marked from '../../lib/markedSetting';

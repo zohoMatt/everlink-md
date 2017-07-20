@@ -3,8 +3,10 @@
  */
 import {applyMiddleware, createStore, compose} from 'redux';
 
+// Data store
+import {DEFAULT_STORE} from "./store/developerSpecifiedData";
 // Reducer
-import reducer, {DEFAULT_STORE} from './reducers/rootReducer';
+import reducer from './reducers/rootReducer';
 // Middleware
 import thunk from "redux-thunk";
 import promise from "redux-promise-middleware";

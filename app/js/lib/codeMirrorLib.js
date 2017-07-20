@@ -7,7 +7,7 @@
  * @param line				{Number}
  */
 export function jumpToLineInMiddle(editor, line) {
-	var t = editor.charCoords({line: line, ch: 0}, "local").top;
-	var middleHeight = editor.getScrollerElement().offsetHeight / 2;
+	let t = editor.charCoords({line: line, ch: 0}, "local").top;
+	let middleHeight = editor.getScrollerElement().offsetHeight / 2;
 	editor.scrollTo(null, t - middleHeight - 5);
 }

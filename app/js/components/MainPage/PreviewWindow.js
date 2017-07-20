@@ -20,7 +20,8 @@ import SyncEvernoteButton from './ActionPanel/SyncEvernoteButton';
 export default class PreviewWindow extends React.Component {
 
     render() {
-    	const htmlContent = marked(this.props.textContent || '# EverlinkMD');
+    	const htmlContent = marked(this.props.textContent
+			|| '---  \n### Thanks for using ***EverlinkMD***  \n---  \n> Type anything in the editor to start!');
 		const buttonGroup = [
 			<SyncEvernoteButton key={uuid.v1()}/>,
 			<ExportSaveButton key={uuid.v1()}/>,
@@ -31,6 +32,7 @@ export default class PreviewWindow extends React.Component {
 				<ActionPanel
 					idName="preview"
 					buttonGroup={buttonGroup}/>
+				{/*setting HTML from code using dangerouslySetInnerHTML()*/}
 				<div dangerouslySetInnerHTML={{__html: htmlContent}} />
 			</div>
 		)
