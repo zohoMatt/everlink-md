@@ -32,10 +32,8 @@ const installExtensions = async () => {
 };
 
 app.on('ready', async () => {
+	// WARNING Extensions can be installed only when Google is available
 	await installExtensions();
-
-	console.log(`!!!${process.env.NODE_ENV}!!!\n\n\n\n`);
-
 
 	mainWindow = new BrowserWindow({
 		show: false,
