@@ -37,6 +37,6 @@ node_modules
 
 # App packaged
 dist
-release
+release*
 main.js
 main.js.map

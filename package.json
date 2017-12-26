@@ -2,7 +2,7 @@
   "name": "everlink-md",
   "productName": "EverlinkMD",
   "version": "0.1.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 mocha --compilers js:babel-register --recursive --require ./test/setup.js test/**/*.spec.js",
@@ -16,13 +16,15 @@
     "start": "cross-env NODE_ENV=production electron ./",
     "start-hot": "cross-env HOT=1 NODE_ENV=development electron -r babel-register -r babel-polyfill ./main.development",
     "package": "cross-env NODE_ENV=production node -r babel-register -r babel-polyfill package.js",
-    "package-all": "yarn run package -- --all",
+    "package:mac": "electron-packager ./dist/ EverlinkMD --platform=darwin --arch=x64",
+    "package:all": "yarn run package -- --all",
     "postinstall": "node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
     "dev": "concurrently --kill-others \"yarn run hot-server\" \"yarn run start-hot\"",
     "cleanup": "mop -v"
   },
   "bin": {
-    "electron": "./node_modules/.bin/electron"
+    "electron": "./node_modules/.bin/electron",
+    "electron-packager": "./node_modules/.bin/electron-packager"
   },
   "repository": {
     "type": "git",
@@ -90,6 +92,7 @@
     "react-addons-test-utils": "^15.3.2",
     "redux-logger": "^2.6.1",
     "redux-promise-middleware": "^4.0.0",
+    "semver": "^5.3.0",
     "sinon": "^1.17.6",
     "spectron": "^3.3.0",
     "style-loader": "^0.13.1",
