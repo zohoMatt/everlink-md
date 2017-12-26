@@ -6,7 +6,7 @@
  * @param editor {Object}
  * @param line {Number}
  */
-export function jumpToLineInMiddle(editor, line) {
+export function jumpToLineInMiddle(editor, line: number) {
   const t = editor.charCoords({ line, ch: 0 }, 'local').top;
   const middleHeight = editor.getScrollerElement().offsetHeight / 2;
   editor.scrollTo(null, t - middleHeight - 5);

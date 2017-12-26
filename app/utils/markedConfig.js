@@ -4,7 +4,7 @@
 const marked = require('marked');
 
 marked.setOptions({
-    // todo settings of `marked`
+  // todo settings of `marked`
   renderer: new marked.Renderer(),
   gfm: true,
   tables: true,
