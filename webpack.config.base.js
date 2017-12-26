@@ -34,6 +34,10 @@ export default {
    */
   resolve: {
     extensions: ['.js', '.jsx', '.json'],
+    alias: {
+      actions: path.resolve('./app/actions'),
+      utils: path.resolve('./app/utils')
+    },
     modules: [
       path.join(__dirname, 'app'),
       'node_modules',
