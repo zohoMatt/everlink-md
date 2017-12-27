@@ -1,5 +1,6 @@
-@import "~font-awesome/css/font-awesome.css";
-
+/**======================================================**/
+/**                     Predefined                       **/
+/**======================================================**/
 html {
   padding: 0 !important;
 }
@@ -12,37 +13,23 @@ body {
 
   position: relative;
   color: white;
-  background: #232c39 linear-gradient(45deg, rgba(0, 216, 255, 0.5) 10%, rgba(0, 1, 127, 0.7));
+  background: black;
   font-family: Arial, Helvetica, Helvetica Neue, serif;
   overflow-y: hidden;
 }
 
-h2 {
-  margin: 0;
-  font-size: 2.25rem;
-  font-weight: bold;
-  letter-spacing: -0.025em;
-  color: #fff;
+div {
+  box-sizing: border-box;
 }
 
-p {
-  font-size: 24px;
+#root {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
-li {
-  list-style: none;
-}
+// CodeMirror
+@import "./styles/codeMirror.scss";
 
-a {
-  color: white;
-  opacity: 0.75;
-  text-decoration: none;
-
-  &:hover {
-    a:hover {
-      opacity: 1;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-}
+// FontAwesome
+@import "~font-awesome/css/font-awesome.css";
