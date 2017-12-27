@@ -36,7 +36,6 @@ class MarkdownEditor extends React.Component {
       code: newCode
     });
     this.props.dispatch(compileMarkdownAction(newCode));
-    console.log(styles);
   }
 
   render() {
@@ -69,4 +68,4 @@ class MarkdownEditor extends React.Component {
   }
 }
 
-export default connect(voidFunc)(MarkdownEditor)
+export default connect(voidFunc)(MarkdownEditor);
