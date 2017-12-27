@@ -1,20 +1,22 @@
 /**
  * Created by Zoho on 16/9/28.
  */
-import { DEFAULT_STORE} from "../../../toberefactor/app/js/model/store/developerSpecifiedData";
-import { COMPILE_MARKDOWN } from '../actions/actionTypes';
+import marked from '../utils/markedConfig';
+import INITIAL_STATE from '../store/initial';
 
-import marked from '../../../toberefactor/app/js/lib/markedSetting';
+import { COMPILE_MARKDOWN } from '../actions/actionTypes';
 
 /**
  * @action.type:
  * COMPILE_MARKDOWN
  */
-export function compileMarkdownReducer(state = DEFAULT_STORE.textContent, action) {
-	switch (action.type) {
-		case COMPILE_MARKDOWN:
-			return marked(action.payload);
-		default:
-			return state;
-	}
+export function compileMarkdownReducer(state = INITIAL_STATE.compiledContent, action) {
+  switch (action.type) {
+    case COMPILE_MARKDOWN:
+      return marked(action.payload);
+    default:
+      return state;
+  }
 }
+
+export default {};
