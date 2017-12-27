@@ -834,7 +834,7 @@ babel-plugin-transform-class-properties@^6.24.1, babel-plugin-transform-class-pr
 
 babel-plugin-transform-decorators@^6.24.1:
   version "6.24.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-decorators/-/babel-plugin-transform-decorators-6.24.1.tgz#788013d8f8c6b5222bdf7b344390dfd77569e24d"
+  resolved "http://registry.npm.taobao.org/babel-plugin-transform-decorators/download/babel-plugin-transform-decorators-6.24.1.tgz#788013d8f8c6b5222bdf7b344390dfd77569e24d"
   dependencies:
     babel-helper-explode-class "^6.24.1"
     babel-plugin-syntax-decorators "^6.13.0"
