@@ -1,0 +1,36 @@
+/**======================================================**/
+/**                  Action panels                       **/
+/**======================================================**/
+/******************** Functions *******************/
+@mixin normal-panel-style {
+  position: absolute;
+  z-index: 10;
+
+  height: 40px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+}
+/*****************************************/
+
+.editorButtons {
+  @include normal-panel-style;
+  right: 51%;
+}
+
+.previewButtons {
+  @include normal-panel-style;
+  top: 1%;
+  right: 2%;
+}
+
+.root {
+
+}

@@ -1,0 +1,19 @@
+/**======================================================**/
+/**                      CodeMirror                      **/
+/**======================================================**/
+@import "../node_modules/codemirror/lib/codemirror.css";
+
+.ReactCodeMirror {
+  // todo Leave padding for the action panel
+  width: 100%;
+  height: 100vh;
+
+  border: 1px solid black;
+  .CodeMirror {
+    height: 100%;
+  }
+}
+
+.CodeMirror-wrap pre {
+  word-break: break-all;
+}
