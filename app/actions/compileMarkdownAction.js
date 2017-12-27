@@ -9,3 +9,7 @@ export function compileMarkdownAction(content) {
     payload: content
   };
 }
+
+export default {
+  compileMarkdownAction
+};
