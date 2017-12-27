@@ -8,18 +8,17 @@ import uuid from 'uuid';
 import styles from './PreviewWindow.scss';
 
 import ActionPanel from './ActionPanel';
-import ExportSaveButton from './ActionPanel/ExportSaveButton';
-import PreferenceSettingButton from './ActionPanel/PreferenceSettingButton';
-import SyncEvernoteButton from './ActionPanel/SyncEvernoteButton';
+import PanelButton from './ActionPanel/PanelButton';
+import ButtonTypes from 'utils/fontMap';
 
 class PreviewWindow extends React.Component {
 
   render() {
     const htmlContent = this.props.compiledContent;
     const buttonGroup = [
-      <SyncEvernoteButton key={uuid.v1()} />,
-      <ExportSaveButton key={uuid.v1()} />,
-      <PreferenceSettingButton key={uuid.v1()} />
+      <PanelButton fontName={ButtonTypes.SyncEvernoteButton} key={uuid.v1()} />,
+      <PanelButton fontName={ButtonTypes.ExportSaveButton} key={uuid.v1()} />,
+      <PanelButton fontName={ButtonTypes.PreferenceSettingButton} key={uuid.v1()} />
     ];
     return (
       <div className={styles.mdPreview}>

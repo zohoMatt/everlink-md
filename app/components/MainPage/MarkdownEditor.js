@@ -12,8 +12,8 @@ import { voidFunc } from 'utils/common';
 
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
-import InsertLinkButton from './ActionPanel/InsertLinkButton';
-import InsertPictureButton from './ActionPanel/InsertPictureButton';
+import PanelButton from './ActionPanel/PanelButton';
+import ButtonTypes from 'utils/fontMap';
 
 class MarkdownEditor extends React.Component {
   constructor() {
@@ -36,6 +36,7 @@ class MarkdownEditor extends React.Component {
       code: newCode
     });
     this.props.dispatch(compileMarkdownAction(newCode));
+    console.log(styles);
   }
 
   render() {
@@ -46,8 +47,8 @@ class MarkdownEditor extends React.Component {
       lineWrapping: true
     };
     const buttonGroup = [
-      <InsertPictureButton key={uuid.v1()} />,
-      <InsertLinkButton key={uuid.v1()} />
+      <PanelButton fontName={ButtonTypes.InsertPictureButton} key={uuid.v1()} />,
+      <PanelButton fontName={ButtonTypes.InsertLinkButton} key={uuid.v1()} />
     ];
     return (
       <div className={styles.mdEditor}>
