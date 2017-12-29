@@ -16,7 +16,6 @@ import PanelButton from './ActionPanel/PanelButton';
 import ButtonTypes from 'utils/fontMap';
 
 type Props = {
-
 };
 
 type State = {
@@ -58,15 +57,13 @@ class MarkdownEditor extends React.Component<Props, State> {
       <div className={styles.mdEditor}>
         <ActionPanel
           idName="editor"
-          buttonGroup={buttonGroup}
-        />
+        >{ buttonGroup }</ActionPanel>
 
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <Codemirror
           ref={(ref) => { this.codeMirrorInstance = ref; }}
           value={this.state.code}
           onChange={this.updateCode.bind(this)}
-          options={codeMirrorOptions}
         />
       </div>
     );
