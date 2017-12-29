@@ -18,14 +18,7 @@ import ButtonTypes from 'utils/fontMap';
 // CodeMirro Markdown syntax highlighting template
 require('codemirror/mode/markdown/markdown');
 
-type Props = {
-};
-
-type State = {
-  code: string
-};
-
-class MarkdownEditor extends React.Component<Props, State> {
+class MarkdownEditor extends React.Component {
   state = {
     code: '# EverlinkMD'
   };
