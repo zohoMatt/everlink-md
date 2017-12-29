@@ -15,13 +15,18 @@ import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
 import ButtonTypes from 'utils/fontMap';
 
-class MarkdownEditor extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      code: '# EverlinkMD'
-    };
-  }
+type Props = {
+
+};
+
+type State = {
+  code: string
+};
+
+class MarkdownEditor extends React.Component<Props, State> {
+  state = {
+    code: '# EverlinkMD'
+  };
 
   componentDidMount() {
     // get instance to use official manual
@@ -32,9 +37,9 @@ class MarkdownEditor extends React.Component {
 
   /** ***************************************/
   updateCode(newCode) {
-    this.setState({
+    this.setState(() =>({
       code: newCode
-    });
+    }));
     this.props.dispatch(compileMarkdownAction(newCode));
   }
 
