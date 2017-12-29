@@ -65,6 +65,7 @@ class MarkdownEditor extends React.Component<Props, State> {
           ref={(ref) => { this.codeMirrorInstance = ref; }}
           value={this.state.code}
           onChange={this.updateCode.bind(this)}
+          options={codeMirrorOptions}
         />
       </div>
     );
