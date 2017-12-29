@@ -34,13 +34,14 @@ class MarkdownEditor extends React.Component<Props, State> {
     });
   }
 
-  /** ***************************************/
+  /*****************************************/
   updateCode(newCode) {
     this.setState(() =>({
       code: newCode
     }));
     this.props.dispatch(compileMarkdownAction(newCode));
   }
+  /***************************************/
 
   render() {
     const codeMirrorOptions = {
