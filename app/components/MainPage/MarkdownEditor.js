@@ -15,6 +15,9 @@ import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
 import ButtonTypes from 'utils/fontMap';
 
+// CodeMirro Markdown syntax highlighting template
+require('codemirror/mode/markdown/markdown');
+
 type Props = {
 };
 
@@ -35,7 +38,7 @@ class MarkdownEditor extends React.Component<Props, State> {
   }
 
   /*****************************************/
-  updateCode(newCode) {
+  updateCode(newCode: string) {
     this.setState(() =>({
       code: newCode
     }));
