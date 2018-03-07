@@ -1,0 +1,27 @@
+.markedH1,
+.markedH2,
+.markedH3,
+.markedH4,
+.markedH5,
+.markedH6,
+.markedBlockquote,
+.markedNormal {
+  color: black;
+  font-family: Arial, sans-serif;
+}
+
+.markedBlockquote {
+  font-family: Andale Mono, sans-serif;
+  font-style: italic;
+  padding: 0 10px;
+  border-left: 3px solid lightgray;
+}
+
+.markedHr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid lightgray;
+  margin: 10px 0 20px;
+  padding: 0;
+}

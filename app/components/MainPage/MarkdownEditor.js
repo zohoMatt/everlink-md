@@ -15,7 +15,7 @@ import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
 import ButtonTypes from 'utils/fontMap';
 
-// CodeMirro Markdown syntax highlighting template
+// CodeMirror Markdown syntax highlighting template
 require('codemirror/mode/markdown/markdown');
 
 class MarkdownEditor extends React.Component {

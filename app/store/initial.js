@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   router: {},
-  compiledContent: '<h1>Welcome to use EverlinkMD</h1>'
+  compiledContent: `<h1>Now it's your turn!</h1>`
 };
 
 export default INITIAL_STATE;
