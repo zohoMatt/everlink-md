@@ -5,28 +5,51 @@ const marked = require('marked');
 
 const renderer = new marked.Renderer();
 
+/**======================================================**/
+/**           Overwrite renderer's method                **/
+/**======================================================**/
+/******************** Block level *******************/
 // code
 // todo A new feature
 
-// blockquote
 renderer.blockquote = quote => {
   return `<div class="markedBlockquote">${quote}</div>`;
 };
 
-// heading
 renderer.heading = (text, level) => {
   const className = `markedH${level}`;
   return `<h${level} class="${className}">${text}</h${level}>`
 };
 
-// hr
 renderer.hr = () => `<hr class="markedHr" />`;
 
-// paragraph
+renderer.list = (body, ordered) => {
+  const tag = ordered ? 'ol' : 'ul';
+  const className = ordered ? 'markedOl' : 'markedUl';
+  return `<${tag} class="${className}">${body}</${tag}>`;
+};
+
+renderer.listitem = text => `<li class="markedLi">${text}</li>`;
+
 renderer.paragraph = text => {
   return `<div class="markedNormal">${text}</div>`;
 };
 
+// table
+// todo A new feature
+
+/******************** Inline level *******************/
+renderer.strong = text => `<strong class="markedStrong">${text}</strong>`;
+renderer.em = text => `<strong class="markedEm">${text}</strong>`;
+renderer.codespan = text => `<code class="markedCodeSpan">${text}</code>`;
+// br: omitted
+// del: todo
+// link: todo
+// image: todo
+// text: todo
+
+
+/******************** Initialize marked *******************/
 marked.setOptions({
   // todo settings of `marked`
   renderer: renderer,

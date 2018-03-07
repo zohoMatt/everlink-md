@@ -5,7 +5,13 @@
 .markedH5,
 .markedH6,
 .markedBlockquote,
-.markedNormal {
+.markedNormal,
+.markedUl,
+.markedOl,
+.markedLi,
+.markedStrong,
+.markedEm,
+.markedCodeSpan {
   color: black;
   font-family: Arial, sans-serif;
 }
@@ -24,4 +30,17 @@
   border-top: 1px solid lightgray;
   margin: 10px 0 20px;
   padding: 0;
+}
+
+.markedCodeSpan {
+  display: inline-block;
+  background-color: #f6f8fa;
+  margin: 0 2px;
+  padding: 1px 5px;
+  border-radius: 3px;
+
+  color: #24292e;
+  font-size: 13px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,Courier, monospace;
+  font-weight: 400;
 }
