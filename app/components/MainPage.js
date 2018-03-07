@@ -5,6 +5,7 @@ import React from 'react';
 
 import MarkdownEditor from './MainPage/MarkdownEditor';
 import PreviewWindow from './MainPage/PreviewWindow';
+import AddLinkModal from './MainPage/modals/AddLinkModal';
 
 import styles from './MainPage.scss';
 
@@ -16,6 +17,7 @@ export default class MainPage extends React.Component {
       <div className={styles.mainPage}>
         <MarkdownEditor />
         <PreviewWindow />
+        <AddLinkModal/>
       </div>
     );
   }

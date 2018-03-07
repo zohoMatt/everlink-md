@@ -16,3 +16,19 @@ $MONO_FONT_1:                   "Lucida Console", Monaco, monospace;
 /**======================================================**/
 /**                     FUNCTIONS                        **/
 /**======================================================**/
+/******************** Layout *******************/
+@mixin common-flex($flex-direction, $justify-content, $align-items) {
+  display: flex;
+  flex-direction: $flex-direction;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+@mixin svg-icon() {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}

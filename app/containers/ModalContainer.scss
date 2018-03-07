@@ -1,0 +1,59 @@
+@import "~styles/lib.scss";
+
+.modalBackground {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.modalContainer {
+  position: relative;
+  top: 100px;
+  left: calc(50vw - 250px);
+  width: 500px;
+  height: 400px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  background-color: white;
+  z-index: 100;
+}
+
+$btn-size: 30px;
+
+.closeBtn {
+  @include common-flex(row, center, center);
+
+  position: absolute;
+  width: $btn-size;
+  height: $btn-size;
+  top: 15px;
+  right: 20px;
+  padding: 2px;
+  border: 3px solid gray;
+  border-radius: $btn-size;
+
+  line-height: $btn-size;
+
+  cursor: pointer;
+  transition: 0.2s;
+
+  .icon {
+    @include svg-icon;
+
+    color: grey;
+    font-size: 11px;
+  }
+
+  &:hover {
+    filter: brightness(1.3);
+
+    .icon {
+      font-size: 13px;
+      color: rgba(255, 0, 0, 0.4);
+    }
+  }
+}
+
+
