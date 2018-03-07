@@ -18,7 +18,7 @@ renderer.blockquote = quote => {
 
 renderer.heading = (text, level) => {
   const className = `markedH${level}`;
-  return `<h${level} class="${className}">${text}</h${level}>`
+  return `<h${level} class="${className}">${text}</h${level}>`;
 };
 
 renderer.hr = () => `<hr class="markedHr" />`;
