@@ -17,7 +17,7 @@ export default class MainPage extends React.Component {
       <div className={styles.mainPage}>
         <MarkdownEditor />
         <PreviewWindow />
-        <AddLinkModal/>
+        <AddLinkModal />
       </div>
     );
   }

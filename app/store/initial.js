@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   router: {},
-  compiledContent: `<h1>Now it's your turn!</h1>`,
+  compiledContent: `<h1>EverlinkMD</h1>`,
   modalVisible: true
 };
 

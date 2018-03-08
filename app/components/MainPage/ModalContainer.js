@@ -14,7 +14,6 @@ const ModalContainer = ({ visible, children, toggleModal }) => {
   return visible ?
     (
       <div className={styles.modalBackground}>
-
         <div className={styles.modalContainer}>
           <div className={styles.closeBtn} onClick={() => toggleModal(false)}>
             <svg className={styles.icon} viewBox="0 0 16 16">

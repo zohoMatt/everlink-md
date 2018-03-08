@@ -4,7 +4,7 @@
 // @flow
 import React from 'react';
 
-import ModalContainer from 'containers/ModalContainer';
+import ModalContainer from 'components/MainPage/ModalContainer';
 
 const AddLinkModal = () => {
   return (
