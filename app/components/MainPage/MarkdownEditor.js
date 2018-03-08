@@ -41,8 +41,8 @@ class MarkdownEditor extends React.Component {
       lineWrapping: true
     };
     const buttonGroup = [
-      <PanelButton fontName={ButtonTypes.InsertPictureButton} key={uuid.v1()} />,
-      <PanelButton fontName={ButtonTypes.InsertLinkButton} key={uuid.v1()} />
+      <PanelButton iconName={ButtonTypes.InsertPictureButton} key={uuid.v1()} />,
+      <PanelButton iconName={ButtonTypes.InsertLinkButton} key={uuid.v1()} />
     ];
     return (
       <div className={styles.mdEditor}>

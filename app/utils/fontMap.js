@@ -1,7 +1,7 @@
 export default {
-  ExportSaveButton: 'fa-floppy-o',
-  InsertLinkButton: 'fa-link',
-  InsertPictureButton: 'fa-picture-o',
-  PreferenceSettingButton: 'fa-cog',
-  SyncEvernoteButton: 'fa-refresh',
+  ExportSaveButton: 'save',
+  InsertLinkButton: 'link',
+  InsertPictureButton: 'pic',
+  PreferenceSettingButton: 'set',
+  SyncEvernoteButton: 'sync',
 };

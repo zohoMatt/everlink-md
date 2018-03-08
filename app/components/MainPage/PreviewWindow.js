@@ -17,9 +17,9 @@ type Props = {
 };
 const PreviewWindow = ({ compiledContent }: Props) => {
   const buttonGroup = [
-    <PanelButton fontName={ButtonTypes.SyncEvernoteButton} key={uuid.v1()} />,
-    <PanelButton fontName={ButtonTypes.ExportSaveButton} key={uuid.v1()} />,
-    <PanelButton fontName={ButtonTypes.PreferenceSettingButton} key={uuid.v1()} />
+    <PanelButton iconName={ButtonTypes.SyncEvernoteButton} key={uuid.v1()} />,
+    <PanelButton iconName={ButtonTypes.ExportSaveButton} key={uuid.v1()} />,
+    <PanelButton iconName={ButtonTypes.PreferenceSettingButton} key={uuid.v1()} />
   ];
   return (
     <div className={styles.mdPreview}>

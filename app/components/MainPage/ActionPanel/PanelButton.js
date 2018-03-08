@@ -2,17 +2,18 @@
 import React from 'react';
 import { dispatchCreator } from 'actions/actionTypes';
 import toggleWrapper from 'containers/wrapper/toggleModal';
+import panelSvg from 'assets/svg/panelSvg';
 
 import styles from './PanelButton.scss';
 
 type Props = {
-  fontName: string,
+  iconName: string,
   toggleModal: boolean => dispatchCreator
 };
 
-const PanelButton = ({ fontName, toggleModal }: Props) => (
+const PanelButton = ({ iconName, toggleModal }: Props) => (
   <div className={styles.panelButton} onClick={() => toggleModal(true)}>
-    <i className={`fa ${fontName}`} aria-hidden="true" />
+    { panelSvg[iconName] }
   </div>
 );
 
