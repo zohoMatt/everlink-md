@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import styles from './ModalContainer.scss';
-import CloseIcon from 'assets/svg/CloseIcon';
 
 import { toggleModal } from 'actions/actionTypes';
 

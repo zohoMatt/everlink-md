@@ -2,10 +2,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { toggleModal } from 'actions/actionTypes';
 
-const containerWrapper = component => connect(
-  state => null,
+const toggleModalWrapper = component => connect(
+  state => ({}),
   dispatch => bindActionCreators({ toggleModal }, dispatch)
 )(component);
 
 
-export default containerWrapper;
+export default toggleModalWrapper;
