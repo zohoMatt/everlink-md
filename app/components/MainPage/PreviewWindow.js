@@ -32,4 +32,4 @@ const PreviewWindow = ({ compiledContent }: Props) => {
   );
 };
 
-export default connect(state => ({ compiledContent: state.compiledContent }))(PreviewWindow);
+export default connect(state => ({ compiledContent: state.editor.compiled }))(PreviewWindow);

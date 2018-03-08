@@ -10,10 +10,14 @@ import { COMPILE_MARKDOWN } from '../actions/actionTypes';
  * @action.type:
  * COMPILE_MARKDOWN
  */
-export function compileMarkdownReducer(state = INITIAL_STATE.compiledContent, action) {
-  switch (action.type) {
+export function compileMarkdownReducer(state = INITIAL_STATE.editor, action) {
+  const { type, payload } = action;
+  switch (type) {
     case COMPILE_MARKDOWN:
-      return marked(action.payload);
+      return {
+        raw: payload,
+        compiled: marked(payload)
+      };
     default:
       return state;
   }

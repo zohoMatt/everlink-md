@@ -3,11 +3,12 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import uuid from 'uuid';
 // CodeMirror add-ons
 import Codemirror from 'react-codemirror';
 
-import { compileMarkdownAction } from 'actions/compileMarkdownAction';
+import { compileContent } from 'actions/compileMarkdownAction';
 import { voidFunc } from 'utils/common';
 
 import styles from './MarkdownEditor.scss';
@@ -19,10 +20,6 @@ import ButtonTypes from 'utils/fontMap';
 require('codemirror/mode/markdown/markdown');
 
 class MarkdownEditor extends React.Component {
-  state = {
-    code: '# EverlinkMD'
-  };
-
   componentDidMount() {
     // get instance to use official manual
     const codeMirrorInstance = this.codeMirrorInstance.getCodeMirror();
@@ -31,11 +28,8 @@ class MarkdownEditor extends React.Component {
   }
 
   /*****************************************/
-  updateCode(newCode: string) {
-    this.setState(() =>({
-      code: newCode
-    }));
-    this.props.dispatch(compileMarkdownAction(newCode));
+  updateCode(newCode) {
+    this.props.compileContent(newCode);
   }
   /***************************************/
 
@@ -59,7 +53,7 @@ class MarkdownEditor extends React.Component {
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <Codemirror
           ref={(ref) => { this.codeMirrorInstance = ref; }}
-          value={this.state.code}
+          value={this.props.code}
           onChange={this.updateCode.bind(this)}
           options={codeMirrorOptions}
         />
@@ -68,4 +62,7 @@ class MarkdownEditor extends React.Component {
   }
 }
 
-export default connect(voidFunc)(MarkdownEditor);
+export default connect(
+  state => ({ code: state.editor.raw }),
+  dispatch => bindActionCreators({ compileContent }, dispatch)
+)(MarkdownEditor);

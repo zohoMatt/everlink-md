@@ -7,8 +7,8 @@ import { toggleModal } from './toggleModal';
 
 const rootReducer = combineReducers({
   router: routerReducer,
-  compiledContent: compileMarkdownReducer,
-  modalVisible: toggleModal
+  editor: compileMarkdownReducer,
+  modalVisible: toggleModal,
 });
 
 export default rootReducer;
