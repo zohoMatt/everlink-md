@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     compiled: '<h1>EverlinkMD</h1>'
   },
   compiledContent: `<h1>EverlinkMD</h1>`,
-  modalVisible: true
+  modalVisible: false,
+  modalType: ''
 };
 
 export default INITIAL_STATE;

@@ -9,8 +9,8 @@ import styles from './ModalContainer.scss';
 
 import { toggleModal } from 'actions/actionTypes';
 
-const ModalContainer = ({ visible, children, toggleModal }) => {
-  return visible ?
+const ModalContainer = ({ visibleType, typeName, children, toggleModal }) => {
+  return visibleType === typeName ?
     (
       <div className={styles.modalBackground}>
         <div className={styles.modalContainer}>
@@ -27,6 +27,6 @@ const ModalContainer = ({ visible, children, toggleModal }) => {
 };
 
 export default connect(
-  state => ({ visible: state.modalVisible }),
+  state => ({ visibleType: state.modalType }),
   dispatch => bindActionCreators({ toggleModal }, dispatch)
 )(ModalContainer);

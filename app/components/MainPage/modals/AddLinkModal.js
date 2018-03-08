@@ -5,10 +5,11 @@
 import React from 'react';
 
 import ModalContainer from 'components/MainPage/ModalContainer';
+import ButtonTypes from 'utils/fontMap';
 
 const AddLinkModal = () => {
   return (
-    <ModalContainer>
+    <ModalContainer typeName={ButtonTypes.InsertLinkButton}>
       <h1>What a day</h1>
     </ModalContainer>
   );

@@ -4,10 +4,10 @@
 import INITIAL_STATE from '../store/initial';
 import { TOGGLE_MODAL_VISIBILITY } from 'actions/actionTypes';
 
-export const toggleModal = (state = INITIAL_STATE.modalVisible, action) => {
+export const toggleModal = (state = INITIAL_STATE.modalType, action) => {
   switch (action.type) {
     case TOGGLE_MODAL_VISIBILITY:
-      return action.payload
+      return action.payload;
     default:
       return state;
   }

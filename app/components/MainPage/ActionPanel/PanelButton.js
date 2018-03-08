@@ -12,7 +12,7 @@ type Props = {
 };
 
 const PanelButton = ({ iconName, toggleModal }: Props) => (
-  <div className={styles.panelButton} onClick={() => toggleModal(true)}>
+  <div className={styles.panelButton} onClick={() => toggleModal(iconName)}>
     { panelSvg[iconName] }
   </div>
 );

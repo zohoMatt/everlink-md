@@ -16,10 +16,10 @@ export const COMPILE_MARKDOWN: string = 'COMPILE_MARKDOWN';
 /******************** Modal *******************/
 export const TOGGLE_MODAL_VISIBILITY: string = 'TOGGLE_MODAL_VISIBILITY';
 
-export const toggleModal: boolean => dispatchCreator = state =>
+export const toggleModal = typeName =>
   (dispatch: (action: actionType) => void) => dispatch({
     type: TOGGLE_MODAL_VISIBILITY,
-    payload: state
+    payload: typeName
   });
 
 export default {
