@@ -6,27 +6,19 @@ import React from 'react';
 
 import styles from './BasicInput.scss';
 
-type Props = {
-  value?: string,
-  placeholder?: string,
-  onChange?: * => void
-};
-
 class BasicInput extends React.Component {
+  props: {
+    placeholder: string,
+    onChange: any => void
+  };
+
   static defaultProps = {
-    value: '',
     placeholder: 'Please type in',
     onChange: _ => null
   };
 
   state = {
     selfValue: ''
-  };
-
-  props: {
-    value: string,
-    placeholder: string,
-    onChange: * => void
   };
 
   /******************** Methods *******************/
@@ -38,7 +30,7 @@ class BasicInput extends React.Component {
 
 
   render() {
-    const { placeholder, onChange } = this.props;
+    const { placeholder } = this.props;
     const { selfValue } = this.state;
     return (
       <div className={styles.wrapperInput}>
@@ -49,6 +41,7 @@ class BasicInput extends React.Component {
           value={selfValue}
           onChange={this.updateChange.bind(this)}
         />
+        <i className={styles.clearInput} />
       </div>
     );
   }
