@@ -5,12 +5,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import uuid from 'uuid';
-// CodeMirror add-ons
-import { Controlled as CodeMirror } from 'react-codemirror2';
+import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
 import { compileContent } from 'actions/compileMarkdownAction';
-import { voidFunc } from 'utils/common';
-
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
@@ -45,7 +42,6 @@ class MarkdownEditor extends React.Component {
 
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <CodeMirror
-          ref={(ref) => { this.codeMirrorInstance = ref; }}
           value={ this.props.code }
           onBeforeChange={ this.updateCode.bind(this) }
           options={codeMirrorOptions}
