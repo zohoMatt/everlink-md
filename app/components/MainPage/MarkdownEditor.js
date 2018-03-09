@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import uuid from 'uuid';
 // CodeMirror add-ons
-import Codemirror from 'react-codemirror';
+import { Controlled as CodeMirror } from 'react-codemirror2';
 
 import { compileContent } from 'actions/compileMarkdownAction';
 import { voidFunc } from 'utils/common';
@@ -20,15 +20,8 @@ import ButtonTypes from 'utils/fontMap';
 require('codemirror/mode/markdown/markdown');
 
 class MarkdownEditor extends React.Component {
-  componentDidMount() {
-    // get instance to use official manual
-    const codeMirrorInstance = this.codeMirrorInstance.getCodeMirror();
-    codeMirrorInstance.on('scroll', (instance) => {
-    });
-  }
 
-  /*****************************************/
-  updateCode(newCode) {
+  updateCode(editor, data, newCode) {
     this.props.compileContent(newCode);
   }
   /***************************************/
@@ -51,10 +44,10 @@ class MarkdownEditor extends React.Component {
         >{ buttonGroup }</ActionPanel>
 
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
-        <Codemirror
+        <CodeMirror
           ref={(ref) => { this.codeMirrorInstance = ref; }}
-          value={this.props.code}
-          onChange={this.updateCode.bind(this)}
+          value={ this.props.code }
+          onBeforeChange={ this.updateCode.bind(this) }
           options={codeMirrorOptions}
         />
       </div>
