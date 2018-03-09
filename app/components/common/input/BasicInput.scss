@@ -1,0 +1,31 @@
+.input {
+  $default_border_style: 1px solid rgb(187, 187, 187);
+  $focus_border_style: 1px solid #00ADBC;
+  $init_left_padding: 10px;
+
+  display: inline-block;
+  width: 200px;
+  height: 35px;
+  margin: 0;
+  border: $default_border_style;
+  border-radius: 3px;
+  padding: 0 30px 0 $init_left_padding;
+
+
+  font-family: 'Noto Sans CJK SC', 'Microsoft Yahei', 'Helvetica', 'sans-serif';
+  font-size: 14px;
+  transition: 0.2s;
+
+  &:focus {
+    border: 1px solid #008A96;
+  }
+
+  &:disabled {
+    background-color: #E6E8EB;
+    cursor: not-allowed;
+  }
+}
+
+.wrapperInput {
+
+}
