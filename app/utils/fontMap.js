@@ -1,5 +1,5 @@
 export default {
-  ExportSaveButton: 'save',
+  ExportFileButton: 'save',
   InsertLinkButton: 'link',
   InsertPictureButton: 'pic',
   PreferenceSettingButton: 'set',
