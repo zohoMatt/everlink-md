@@ -14,8 +14,9 @@ $MONO_FONT_1:                   "Lucida Console", Monaco, monospace;
 
 
 /**======================================================**/
-/**                     FUNCTIONS                        **/
+/**                       MIXINS                         **/
 /**======================================================**/
+
 /******************** Layout *******************/
 @mixin common-flex($flex-direction, $justify-content, $align-items) {
   display: flex;
