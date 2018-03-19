@@ -28,10 +28,17 @@ class BasicInput extends React.Component {
     extraCallbacks(event);
   }
 
+  clearInput() {
+    this.setState({ ...this.state, selfValue: '' });
+  }
 
   render() {
     const { placeholder } = this.props;
     const { selfValue } = this.state;
+    const clearTextIcon = selfValue.length > 0
+      ? (<i className={styles.clearInput} onClick={this.clearInput.bind(this)} />)
+      : null;
+
     return (
       <div className={styles.wrapperInput}>
         <input
@@ -41,7 +48,7 @@ class BasicInput extends React.Component {
           value={selfValue}
           onChange={this.updateChange.bind(this)}
         />
-        <i className={styles.clearInput} />
+        { clearTextIcon }
       </div>
     );
   }
