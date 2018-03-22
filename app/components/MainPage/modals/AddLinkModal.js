@@ -13,7 +13,7 @@ import styles from './AddLinkModal.scss';
 
 const AddLinkModal = () => {
   return (
-    <ModalContainer typeName={ButtonTypes.InsertLinkButton}>
+    <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }}>
       <div className={styles.title}>Insert a link into context</div>
       <div className={styles.content}>
         <div className={styles.row}>
