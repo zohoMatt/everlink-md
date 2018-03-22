@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import uuid from 'uuid';
 import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
-import { compileContent } from 'actions/compileMarkdownAction';
+import { compileContent } from 'actions/compileMdAction';
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';

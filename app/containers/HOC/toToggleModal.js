@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { toggleModal } from 'actions/actionTypes';
+import { toggleModal } from 'actions/modalActions';
 
 const toToggleModal = component => connect(
   state => ({}),
