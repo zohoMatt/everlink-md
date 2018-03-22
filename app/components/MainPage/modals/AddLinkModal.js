@@ -11,11 +11,12 @@ import InputPrompt from 'components/common/text/InputPrompt';
 import ButtonTypes from 'utils/fontMap';
 
 import styles from './AddLinkModal.scss';
+import commonStyles from './common/common.scss';
 
 const AddLinkModal = () => {
   return (
     <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }}>
-      <div className={styles.title}>Insert a link into context</div>
+      <div className={commonStyles.title}>Insert a link into context</div>
       <div className={styles.content}>
         <div className={styles.row}>
           <InputPrompt label={'Text display'} width={'100px'} />
@@ -27,7 +28,7 @@ const AddLinkModal = () => {
         </div>
       </div>
       <div className={styles.btnContainer}>
-        <BasicButton/>
+        <BasicButton text={'Insert'} width={'120px'} />
       </div>
     </ModalContainer>
   );

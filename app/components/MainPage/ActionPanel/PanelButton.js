@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { dispatchCreator } from 'actions/actionTypes';
-import toggleWrapper from 'containers/wrapper/toggleModal';
+import withToggleModal from 'containers/HOC/withToggleModal';
 import panelSvg from 'assets/svg/panelSvg';
 
 import styles from './PanelButton.scss';
@@ -17,4 +17,4 @@ const PanelButton = ({ iconName, toggleModal }: Props) => (
   </div>
 );
 
-export default toggleWrapper(PanelButton);
+export default withToggleModal(PanelButton);

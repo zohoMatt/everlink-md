@@ -1,9 +1,4 @@
-@import "./common";
 @import "~styles/lib.scss";
-
-.title {
-
-}
 
 .row {
   @include common-flex(row, flex-start, center);
