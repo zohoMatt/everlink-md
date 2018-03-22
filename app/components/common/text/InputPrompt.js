@@ -8,7 +8,7 @@ import styles from './InputPrompt.scss';
 
 const InputPrompt = ({ label, width }) => {
   return (
-    <div className={styles.label} style={ {width} }>{ label }</div>
+    <div className={styles.label} style={{ width }}>{ label }</div>
   )
 };
 

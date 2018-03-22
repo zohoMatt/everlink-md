@@ -9,12 +9,14 @@ import styles from './BasicInput.scss';
 class BasicInput extends React.Component {
   props: {
     placeholder: string,
-    onChange: any => void
+    onChange: any => void,
+    width: string
   };
 
   static defaultProps = {
     placeholder: 'Please type in',
-    onChange: _ => null
+    onChange: _ => null,
+    width: '200px'
   };
 
   state = {
@@ -33,20 +35,21 @@ class BasicInput extends React.Component {
   }
 
   render() {
-    const { placeholder } = this.props;
+    const { placeholder, width } = this.props;
     const { selfValue } = this.state;
     const clearTextIcon = selfValue.length > 0
       ? (<i className={styles.clearInput} onClick={this.clearInput.bind(this)} />)
       : null;
 
     return (
-      <div className={styles.wrapperInput}>
+      <div className={styles.wrapperInput} style={{ width }}>
         <input
           className={styles.input}
           type="text"
           placeholder={placeholder}
           value={selfValue}
           onChange={this.updateChange.bind(this)}
+          style={{ width }}
         />
         { clearTextIcon }
       </div>

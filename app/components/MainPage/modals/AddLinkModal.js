@@ -18,12 +18,15 @@ const AddLinkModal = () => {
       <div className={styles.content}>
         <div className={styles.row}>
           <InputPrompt label={'Text display'} width={'100px'} />
-          <BasicInput />
+          <BasicInput width={'200px'} />
         </div>
         <div className={styles.row}>
           <InputPrompt label={'Link URL'} width={'100px'} />
-          <BasicInput />
+          <BasicInput width={'350px'} />
         </div>
+      </div>
+      <div className={styles.btnContainer}>
+
       </div>
     </ModalContainer>
   );
