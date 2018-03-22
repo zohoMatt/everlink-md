@@ -50,7 +50,9 @@ class MarkdownEditor extends React.Component {
 
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <CodeMirror
-          value={ code }
+          value={code}
+          cursor={cursor}
+          selection={selection}
           onBeforeChange={ (editor, data, newCode) => compile(newCode) }
           options={codeMirrorOptions}
           onCursor={(editor, data) => console.log(editor, data)}
