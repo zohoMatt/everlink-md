@@ -10,9 +10,8 @@ import { COMPILE_MARKDOWN } from 'actions/compileMdAction';
  * @action.type:
  * COMPILE_MARKDOWN
  */
-export function compileMarkdownReducer(state = INITIAL_STATE.editor, action) {
+export function compileMarkdownReducer(state = INITIAL_STATE.markdown, action) {
   const { type, payload } = action;
-  console.log(action);
   switch (type) {
     case COMPILE_MARKDOWN:
       return {

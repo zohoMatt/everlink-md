@@ -8,6 +8,7 @@ import uuid from 'uuid';
 import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
 import { compileContent } from 'actions/compileMdAction';
+import { cursorData, cursorPos } from 'actions/editorActions';
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
@@ -17,6 +18,12 @@ import ButtonTypes from 'utils/fontMap';
 require('codemirror/mode/markdown/markdown');
 
 class MarkdownEditor extends React.Component {
+  props: {
+    compile: string => void,
+    code: string,
+    selection: cursorData[],
+    cursor: cursorPos
+  };
 
   updateCode(editor, data, newCode) {
     this.props.compileContent(newCode);
@@ -24,6 +31,7 @@ class MarkdownEditor extends React.Component {
   /***************************************/
 
   render() {
+    const { compile, code, selection, cursor } = this.props;
     const codeMirrorOptions = {
       lineNumbers: false,
       mode: 'markdown',
@@ -42,9 +50,10 @@ class MarkdownEditor extends React.Component {
 
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <CodeMirror
-          value={ this.props.code }
-          onBeforeChange={ this.updateCode.bind(this) }
+          value={ code }
+          onBeforeChange={ (editor, data, newCode) => compile(newCode) }
           options={codeMirrorOptions}
+          onCursor={(editor, data) => console.log(editor, data)}
         />
       </div>
     );
@@ -52,6 +61,12 @@ class MarkdownEditor extends React.Component {
 }
 
 export default connect(
-  state => ({ code: state.editor.raw }),
-  dispatch => bindActionCreators({ compileContent }, dispatch)
+  state => ({
+    code: state.markdown.raw,
+    selection: [state.cursor],
+    cursor: state.cursor.anchor
+  }),
+  dispatch => bindActionCreators({
+    compile: compileContent
+  }, dispatch)
 )(MarkdownEditor);

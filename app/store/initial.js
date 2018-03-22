@@ -1,11 +1,10 @@
 const INITIAL_STATE = {
   router: {},
-  editor: {
+  markdown: {
     raw: '# EverlinkMD',
-    compiled: '<h1>EverlinkMD</h1>'
+    compiled: '<h1>EverlinkMD</h1>',
   },
-  compiledContent: `<h1>EverlinkMD</h1>`,
-  modalVisible: false,
+  cursor: { anchor: { ch: 0, line: 1 }, head: { ch: 0, line: 1 } },
   modalType: ''
 };
 
