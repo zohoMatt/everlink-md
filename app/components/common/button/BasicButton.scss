@@ -1,0 +1,40 @@
+.normalBtn {
+  display: block;
+
+  border-radius: 3px;
+  border: 1px solid #A7B2C1;
+  line-height: 33px;
+  height: 45px;
+  text-decoration: none;
+  outline: none;
+  color: #677786;
+  background-color: #fff;
+  margin: 0;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100px;
+  text-align: center;
+
+  &:hover:enabled {
+    background-color: #A8B8D0;
+    border-color: #transparent;
+    color: #FFFFFF;
+  }
+
+  &:active:enabled {
+    // todo Style while pressed
+    background-color: #7f7f7f;
+  }
+
+  &:focus {
+    border: 1px solid #transparent;
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: #E6E8EB;
+    color: #A7B2C1;
+    border-color: transparent;
+    cursor: not-allowed;
+  }
+}

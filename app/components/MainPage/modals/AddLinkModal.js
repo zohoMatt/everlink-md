@@ -6,6 +6,7 @@ import React from 'react';
 
 import ModalContainer from 'components/MainPage/ModalContainer';
 import BasicInput from 'components/common/input/BasicInput';
+import BasicButton from 'components/common/button/BasicButton';
 import InputPrompt from 'components/common/text/InputPrompt';
 import ButtonTypes from 'utils/fontMap';
 
@@ -26,7 +27,7 @@ const AddLinkModal = () => {
         </div>
       </div>
       <div className={styles.btnContainer}>
-
+        <BasicButton/>
       </div>
     </ModalContainer>
   );
