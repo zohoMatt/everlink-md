@@ -13,27 +13,59 @@ import ButtonTypes from 'utils/fontMap';
 import styles from './AddLinkModal.scss';
 import commonStyles from './common/common.scss';
 
-const AddLinkModal = () => {
-  const labelWidth = '100px';
-  return (
-    <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }}>
-      <div className={commonStyles.title}>Insert a link into context</div>
-      <div className={styles.content}>
-        <div className={styles.row}>
-          <InputPrompt label={'Description'} width={labelWidth} />
-          <BasicInput width={'200px'} />
-        </div>
-        <div className={styles.row}>
-          <InputPrompt label={'Link URL'} width={labelWidth} />
-          <BasicInput width={'350px'} />
-        </div>
-      </div>
-      <div className={styles.btnContainer}>
-        <BasicButton text={'Insert'} width={'120px'} />
-      </div>
-    </ModalContainer>
-  );
-};
+import toModifyCode from 'containers/HOC/toModfyCode';
 
-export default AddLinkModal;
+class AddLinkModal extends React.Component {
+  props: {
+    insertCode: string => void
+  };
+
+  static defaultProps = {
+    insertCode: _ => null
+  };
+
+  state = {
+    cachedText: '',
+    cachedUrl: ''
+  };
+
+  updateCache(event, prop) {
+    this.setState({
+      ...this.state,
+      [prop]: event.target.value
+    });
+  }
+
+  generateMdCode() {
+    const { cachedText, cachedUrl } = this.state;
+    return `[${cachedText}](${cachedUrl})`;
+  }
+
+  render() {
+    const { insertCode } = this.props;
+    const { updateCache } = this;
+
+    const labelWidth = '100px';
+    return (
+      <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }}>
+        <div className={commonStyles.title}>Insert a link into context</div>
+        <div className={styles.content}>
+          <div className={styles.row}>
+            <InputPrompt label={'Description'} width={labelWidth} />
+            <BasicInput width={'200px'} onChange={event => this.updateCache(event, 'cachedText')} />
+          </div>
+          <div className={styles.row}>
+            <InputPrompt label={'Link URL'} width={labelWidth} />
+            <BasicInput width={'350px'} onChange={event => this.updateCache(event, 'cachedUrl')} />
+          </div>
+        </div>
+        <div className={styles.btnContainer}>
+          <BasicButton text={'Insert'} width={'120px'} />
+        </div>
+      </ModalContainer>
+    );
+  }
+}
+
+export default toModifyCode(AddLinkModal);
 

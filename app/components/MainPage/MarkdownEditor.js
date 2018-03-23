@@ -31,7 +31,6 @@ class MarkdownEditor extends React.Component {
     this.props.setSelection({ head, anchor });
   }
 
-
   /***************************************/
 
   render() {

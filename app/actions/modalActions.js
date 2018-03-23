@@ -7,9 +7,9 @@ export const toggleModal = typeName => dispatch => dispatch({
 });
 
 /******************** Modify code and re-render *******************/
-export const MODIFY_CODE: string = 'MODIFY_CODE';
+export const INSERT_CODE_HERE: string = 'INSERT_CODE_HERE';
 
-export const modifyCode = newCode => dispatch => dispatch({
-  type: MODIFY_CODE,
+export const insertCode2Cursor = newCode => dispatch => dispatch({
+  type: INSERT_CODE_HERE,
   payload: newCode
 });

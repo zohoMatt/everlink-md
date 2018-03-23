@@ -5,7 +5,8 @@ const INITIAL_STATE = {
     compiled: '<h1>EverlinkMD</h1>',
   },
   cursor: { anchor: { ch: 0, line: 1 }, head: { ch: 0, line: 1 } },
-  modalType: ''
+  modalType: '',
+  modalCachedCode: ''
 };
 
 export default INITIAL_STATE;

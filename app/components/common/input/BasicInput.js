@@ -24,10 +24,10 @@ class BasicInput extends React.Component {
   };
 
   /******************** Methods *******************/
-  updateChange(event, extraCallbacks = _ => null) {
+  updateChange(event) {
     event.preventDefault();
     this.setState({ ...this.state, selfValue: event.target.value });
-    extraCallbacks(event);
+    this.props.onChange(event);
   }
 
   clearInput() {
