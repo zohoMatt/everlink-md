@@ -8,7 +8,7 @@ import uuid from 'uuid';
 import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
 import { compileContent } from 'actions/compileMdAction';
-import { cursorData, cursorPos } from 'actions/editorActions';
+import { cursorData, cursorPos, setCursorSelection, selectText } from 'actions/editorActions';
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
@@ -20,18 +20,24 @@ require('codemirror/mode/markdown/markdown');
 class MarkdownEditor extends React.Component {
   props: {
     compile: string => void,
-    code: string,
-    selection: cursorData[],
-    cursor: cursorPos
+    setSelection: cursorPos => void,
+    code: string
+    // selection: cursorData[],
+    // cursor: cursorPos
   };
 
-  updateCode(editor, data, newCode) {
-    this.props.compileContent(newCode);
+  updateSelection(instance, data) {
+    const { head, anchor } = data.ranges[0];
+    this.props.setSelection({ head, anchor });
   }
+
+
   /***************************************/
 
   render() {
-    const { compile, code, selection, cursor } = this.props;
+    const { compile, code } = this.props;
+    const { updateSelection } = this;
+
     const codeMirrorOptions = {
       lineNumbers: false,
       mode: 'markdown',
@@ -51,11 +57,11 @@ class MarkdownEditor extends React.Component {
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <CodeMirror
           value={code}
-          cursor={cursor}
-          selection={selection}
-          onBeforeChange={ (editor, data, newCode) => compile(newCode) }
+          // cursor={cursor}
+          // selection={selection}
+          onBeforeChange={(editor, data, newCode) => compile(newCode)}
           options={codeMirrorOptions}
-          onCursor={(editor, data) => console.log(editor, data)}
+          onSelection={updateSelection.bind(this)}
         />
       </div>
     );
@@ -65,10 +71,9 @@ class MarkdownEditor extends React.Component {
 export default connect(
   state => ({
     code: state.markdown.raw,
-    selection: [state.cursor],
-    cursor: state.cursor.anchor
   }),
   dispatch => bindActionCreators({
-    compile: compileContent
+    compile: compileContent,
+    setSelection: setCursorSelection
   }, dispatch)
 )(MarkdownEditor);
