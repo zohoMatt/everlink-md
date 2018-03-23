@@ -20,6 +20,7 @@ const modals = [
   { type: ButtonTypes.InsertLinkButton, component: <AddLinkModal /> },
   { type: ButtonTypes.InsertPictureButton, component: <InsertImageModal /> },
   { type: ButtonTypes.SyncEvernoteButton, component: <SyncModal /> },
+  { type: ButtonTypes.ExportFileButton, component: <SaveModal /> },
   { type: ButtonTypes.PreferenceSettingButton, component: <SettingModal /> }
 ];
 
@@ -42,6 +43,5 @@ class MainPage extends React.Component {
     );
   }
 }
-
 
 export default toToggleModal(MainPage);

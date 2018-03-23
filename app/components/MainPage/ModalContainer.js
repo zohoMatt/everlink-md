@@ -1,13 +1,10 @@
-import toToggleModal from 'containers/HOC/toToggleModal';
 /**
  * Created by MattZo on 2018/3/7
  */
 import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import styles from './ModalContainer.scss';
-import { toggleModal } from 'actions/modalActions';
+import toToggleModal from 'containers/HOC/toToggleModal';
 
 const ModalContainer = ({ children, toggleModal, posStyles }) => {
   return (
