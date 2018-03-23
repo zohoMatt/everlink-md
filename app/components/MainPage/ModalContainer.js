@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 
 import styles from './ModalContainer.scss';
 
-import { toggleModal } from 'actions/actionTypes';
+import { toggleModal } from 'actions/modalActions';
 
 const ModalContainer = ({ visibleType, children, toggleModal, typeName, posStyles }) => {
   return visibleType === typeName ?
