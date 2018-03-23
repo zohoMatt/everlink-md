@@ -26,13 +26,15 @@ class AddLinkModal extends React.Component {
 
   state = {
     cachedText: '',
-    cachedUrl: ''
+    cachedUrl: '',
+    cachedCode: ''
   };
 
   updateCache(event, prop) {
     this.setState({
       ...this.state,
-      [prop]: event.target.value
+      [prop]: event.target.value,
+      cachedCode: this.generateMdCode()
     });
   }
 
@@ -43,7 +45,8 @@ class AddLinkModal extends React.Component {
 
   render() {
     const { insertCode } = this.props;
-    const { updateCache } = this;
+    const { cachedCode } = this.state;
+    const { updateCache, generateMdCode } = this;
 
     const labelWidth = '100px';
     return (
@@ -60,7 +63,7 @@ class AddLinkModal extends React.Component {
           </div>
         </div>
         <div className={styles.btnContainer}>
-          <BasicButton text={'Insert'} width={'120px'} />
+          <BasicButton text={'Insert'} width={'120px'} onClick={() => insertCode(cachedCode)} />
         </div>
       </ModalContainer>
     );
