@@ -8,7 +8,7 @@ import uuid from 'uuid';
 import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
 import { compileContent } from 'actions/compileMdAction';
-import type { cursorPos } from 'actions/editorActions';
+import type { cursorData, cursorPos } from 'actions/editorActions';
 import { setCursorSelection } from 'actions/editorActions';
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
@@ -22,10 +22,22 @@ class MarkdownEditor extends React.Component {
   props: {
     compile: string => void,
     setSelection: cursorPos => void,
-    code: string
+    code: string,
+    cursor: cursorData,
+    cachedCode: string
     // selection: cursorData[],
     // cursor: cursorPos
   };
+
+  static defaultProps = {
+    compile: _ => null,
+    setSelection: () => null,
+    code: '',
+    cursor: null,
+    cachedCode: ''
+  };
+
+  instance = null;
 
   updateSelection(instance, data) {
     const { head, anchor } = data.ranges[0];
@@ -35,7 +47,7 @@ class MarkdownEditor extends React.Component {
   /***************************************/
 
   render() {
-    const { compile, code } = this.props;
+    const { compile, code, cursor } = this.props;
     const { updateSelection } = this;
 
     const codeMirrorOptions = {
@@ -56,8 +68,8 @@ class MarkdownEditor extends React.Component {
 
         {/* Using ref to get instance of CodeMirror. See react-codemirror on GitHub */}
         <CodeMirror
+          editorDidMount={editor => this.instance = editor}
           value={code}
-          // cursor={cursor}
           // selection={selection}
           onBeforeChange={(editor, data, newCode) => compile(newCode)}
           options={codeMirrorOptions}
@@ -71,6 +83,8 @@ class MarkdownEditor extends React.Component {
 export default connect(
   state => ({
     code: state.markdown.raw,
+    cursor: state.cursor,
+    cachedCode: state.modalCachedCode
   }),
   dispatch => bindActionCreators({
     compile: compileContent,

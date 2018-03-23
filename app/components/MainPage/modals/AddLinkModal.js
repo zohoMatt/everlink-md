@@ -13,7 +13,6 @@ import ButtonTypes from 'utils/fontMap';
 import styles from './AddLinkModal.scss';
 import commonStyles from './common/common.scss';
 
-import type { cursorData } from 'actions/editorActions';
 import toModifyCode from 'containers/HOC/toModfyCode';
 
 class AddLinkModal extends React.Component {
