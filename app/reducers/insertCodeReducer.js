@@ -1,10 +1,10 @@
 import INITIAL_STATE from '../store/initial';
-import { MOVE_CURSOR } from 'actions/editorActions';
+import { INSERT_CODE_HERE } from 'actions/modalActions';
 
-export function cursorReducer(state = INITIAL_STATE.cursor, action) {
+export function insertCodeReducer(state = INITIAL_STATE.modalType, action) {
   const { type, payload } = action;
   switch (type) {
-    case MOVE_CURSOR:
+    case INSERT_CODE_HERE:
       return payload;
     default:
       return state;

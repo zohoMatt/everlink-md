@@ -8,7 +8,7 @@ import styles from './PanelButton.scss';
 
 type Props = {
   iconName: string,
-  toggleModal: boolean => dispatchCreator
+  toggleModal: string | boolean => dispatchCreator
 };
 
 const PanelButton = ({ iconName, toggleModal }: Props) => (

@@ -8,7 +8,8 @@ import uuid from 'uuid';
 import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
 import { compileContent } from 'actions/compileMdAction';
-import { cursorData, cursorPos, setCursorSelection, selectText } from 'actions/editorActions';
+import type { cursorPos } from 'actions/editorActions';
+import { setCursorSelection } from 'actions/editorActions';
 import styles from './MarkdownEditor.scss';
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';

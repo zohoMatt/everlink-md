@@ -13,15 +13,18 @@ import ButtonTypes from 'utils/fontMap';
 import styles from './AddLinkModal.scss';
 import commonStyles from './common/common.scss';
 
+import type { cursorData } from 'actions/editorActions';
 import toModifyCode from 'containers/HOC/toModfyCode';
 
 class AddLinkModal extends React.Component {
   props: {
-    insertCode: string => void
+    insertCode: string => void,
+    toggleModal: string | boolean => void
   };
 
   static defaultProps = {
-    insertCode: _ => null
+    insertCode: _ => null,
+    toggleModal: _ => null
   };
 
   state = {
@@ -30,12 +33,19 @@ class AddLinkModal extends React.Component {
     cachedCode: ''
   };
 
+  /******************** LifeCycle *******************/
   componentWillUnmount() {
     this.setState({
       cachedText: '',
       cachedUrl: '',
       cachedCode: ''
     });
+  }
+
+  /******************** Methods *******************/
+  generateMdCode() {
+    const { cachedText, cachedUrl } = this.state;
+    return `[${cachedText}](${cachedUrl})`;
   }
 
   updateCache(event, prop) {
@@ -46,15 +56,15 @@ class AddLinkModal extends React.Component {
     });
   }
 
-  generateMdCode() {
-    const { cachedText, cachedUrl } = this.state;
-    return `[${cachedText}](${cachedUrl})`;
+  insertHandler(event) {
+    const { toggleModal, insertCode } = this.props;
+    toggleModal(false);
+    insertCode(this.state.cachedCode);
   }
 
   render() {
     const { insertCode } = this.props;
     const { cachedCode } = this.state;
-    const { updateCache, generateMdCode } = this;
 
     const labelWidth = '100px';
     return (
@@ -71,7 +81,7 @@ class AddLinkModal extends React.Component {
           </div>
         </div>
         <div className={styles.btnContainer}>
-          <BasicButton text={'Insert'} width={'120px'} onClick={() => insertCode(cachedCode)} />
+          <BasicButton text={'Insert'} width={'120px'} onClick={this.insertHandler.bind(this)} />
         </div>
       </ModalContainer>
     );
