@@ -8,6 +8,7 @@ import uuid from 'uuid';
 import { Controlled as CodeMirror } from 'react-codemirror2';   // CodeMirror add-ons
 
 import { compileContent } from 'actions/compileMdAction';
+import { ready2Insert } from 'actions/modalActions';
 import type { cursorData, cursorPos } from 'actions/editorActions';
 import { setCursorSelection } from 'actions/editorActions';
 import styles from './MarkdownEditor.scss';
@@ -24,7 +25,8 @@ class MarkdownEditor extends React.Component {
     setSelection: cursorPos => void,
     code: string,
     cursor: cursorData,
-    cachedCode: string
+    cachedCode: string,
+    setCached: string => void
     // selection: cursorData[],
     // cursor: cursorPos
   };
@@ -34,7 +36,8 @@ class MarkdownEditor extends React.Component {
     setSelection: () => null,
     code: '',
     cursor: null,
-    cachedCode: ''
+    cachedCode: '',
+    setCached: _ => null
   };
 
   instance = null;
@@ -47,8 +50,14 @@ class MarkdownEditor extends React.Component {
   /***************************************/
 
   render() {
-    const { compile, code, cursor } = this.props;
+    const { compile, code, cursor, cachedCode, setCached } = this.props;
     const { updateSelection } = this;
+
+    if (cachedCode !== '') {
+      console.log('in');
+      this.instance.getDoc().replaceRange(cachedCode, cursor.anchor, cursor.head);
+      setCached('');
+    }
 
     const codeMirrorOptions = {
       lineNumbers: false,
@@ -88,6 +97,7 @@ export default connect(
   }),
   dispatch => bindActionCreators({
     compile: compileContent,
-    setSelection: setCursorSelection
+    setSelection: setCursorSelection,
+    setCached: ready2Insert
   }, dispatch)
 )(MarkdownEditor);
