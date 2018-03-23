@@ -30,6 +30,14 @@ class AddLinkModal extends React.Component {
     cachedCode: ''
   };
 
+  componentWillUnmount() {
+    this.setState({
+      cachedText: '',
+      cachedUrl: '',
+      cachedCode: ''
+    });
+  }
+
   updateCache(event, prop) {
     this.setState({
       ...this.state,
@@ -50,7 +58,7 @@ class AddLinkModal extends React.Component {
 
     const labelWidth = '100px';
     return (
-      <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }}>
+      <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }} >
         <div className={commonStyles.title}>Insert a link into context</div>
         <div className={styles.content}>
           <div className={styles.row}>

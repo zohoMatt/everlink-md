@@ -1,3 +1,4 @@
+import toToggleModal from 'containers/HOC/toToggleModal';
 /**
  * Created by MattZo on 2018/3/7
  */
@@ -6,12 +7,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import styles from './ModalContainer.scss';
-
 import { toggleModal } from 'actions/modalActions';
 
-const ModalContainer = ({ visibleType, children, toggleModal, typeName, posStyles }) => {
-  return visibleType === typeName ?
-    (
+const ModalContainer = ({ children, toggleModal, posStyles }) => {
+  return (
       <div className={styles.modalBackground}>
         <div className={styles.modalContainer} style={posStyles}>
           <div className={styles.closeBtn} onClick={() => toggleModal(false)}>
@@ -22,11 +21,7 @@ const ModalContainer = ({ visibleType, children, toggleModal, typeName, posStyle
           { children }
         </div>
       </div>
-    )
-    : null;
+    );
 };
 
-export default connect(
-  state => ({ visibleType: state.modalType }),
-  dispatch => bindActionCreators({ toggleModal }, dispatch)
-)(ModalContainer);
+export default toToggleModal(ModalContainer);
