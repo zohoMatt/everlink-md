@@ -48,16 +48,22 @@ class MarkdownEditor extends React.Component {
   }
 
   /***************************************/
+  componentWillUpdate(nextProps) {
+    const { cursor, cachedCode } = nextProps;
+    if (cachedCode === '') return false;
+    else {
+      this.instance.getDoc().replaceRange(cachedCode, cursor.anchor, cursor.head);
+      return true;
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    prevProps.setCached('');
+  }
 
   render() {
-    const { compile, code, cursor, cachedCode, setCached } = this.props;
+    const { compile, code, cursor, cachedCode } = this.props;
     const { updateSelection } = this;
-
-    if (cachedCode !== '') {
-      console.log('in');
-      this.instance.getDoc().replaceRange(cachedCode, cursor.anchor, cursor.head);
-      setCached('');
-    }
 
     const codeMirrorOptions = {
       lineNumbers: false,
