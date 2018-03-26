@@ -42,16 +42,17 @@ class AddLinkModal extends React.Component {
   }
 
   /******************** Methods *******************/
-  generateMdCode() {
-    const { cachedText, cachedUrl } = this.state;
-    return `[${cachedText}](${cachedUrl})`;
-  }
-
   updateCache(event, prop) {
-    this.setState({
+    const newState = {
       ...this.state,
-      [prop]: event.target.value,
-      cachedCode: this.generateMdCode()
+      [prop]: event.target.value
+    };
+    const { cachedText, cachedUrl } = newState;
+    const cachedCode = `[${cachedText}](${cachedUrl})`;
+    // Update state
+    this.setState({
+      ...newState,
+      cachedCode
     });
   }
 
