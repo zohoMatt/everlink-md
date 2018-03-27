@@ -12,7 +12,19 @@ import ButtonTypes from 'utils/fontMap';
 import styles from './InsertImageModal.scss';
 import commonStyles from './common/common.scss';
 
+import toModifyCode from 'containers/HOC/toModfyCode';
+
 class InsertImageModal extends React.Component {
+  props: {
+    insertCode: string => void,
+    toggleModal: string | boolean => void
+  };
+
+  static defaultProps = {
+    insertCode: _ => null,
+    toggleModal: _ => null
+  };
+
   state = {
     cachedText: '',
     cachedUrl: '',
@@ -26,7 +38,7 @@ class InsertImageModal extends React.Component {
       [prop]: event.target.value
     };
     const { cachedText, cachedUrl } = newState;
-    const cachedCode = `[${cachedText}](${cachedUrl})`;
+    const cachedCode = `![${cachedText}](${cachedUrl})`;
     // Update state
     this.setState({
       ...newState,
@@ -34,19 +46,31 @@ class InsertImageModal extends React.Component {
     });
   }
 
+  insertHandler(event) {
+    const { toggleModal, insertCode } = this.props;
+    toggleModal(false);
+    insertCode(this.state.cachedCode);
+  }
+
   /******************** React APIs *******************/
   render() {
+    const { path } = this.state;
+
+    const labelWidth = '110px';
     return (
-      <ModalContainer typeName={ButtonTypes.InsertPictureButton}>
+      <ModalContainer typeName={ButtonTypes.InsertPictureButton} posStyles={{ height: '550px' }}>
         <div className={commonStyles.title}>Insert an image into context</div>
         <div className={styles.content}>
           <div className={styles.row}>
-            <InputPrompt label={'Description'} />
+            <InputPrompt label={'Image Title'} width={labelWidth} />
             <BasicInput width={'200px'} onChange={event => this.updateCache(event, 'cachedText')} />
           </div>
           <div className={styles.row}>
-            <InputPrompt label={'Image URL'} />
+            <InputPrompt label={'Image URL'} width={labelWidth} />
             <BasicInput width={'350px'} onChange={event => this.updateCache(event, 'cachedUrl')} />
+          </div>
+          <div className={styles.imageContainer}>
+            <img src={path} />
           </div>
         </div>
         <div className={commonStyles.btnContainer}>
@@ -57,5 +81,5 @@ class InsertImageModal extends React.Component {
   }
 }
 
-export default InsertImageModal;
+export default toModifyCode(InsertImageModal);
 
