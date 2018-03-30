@@ -12,16 +12,14 @@ const renderer = new marked.Renderer();
 // code
 // todo A new feature
 
-renderer.blockquote = quote => {
-  return `<div class="markedBlockquote">${quote}</div>`;
-};
+renderer.blockquote = quote => `<div class="markedBlockquote">${quote}</div>`;
 
 renderer.heading = (text, level) => {
   const className = `markedH${level}`;
   return `<h${level} class="${className}">${text}</h${level}>`;
 };
 
-renderer.hr = () => `<hr class="markedHr" />`;
+renderer.hr = () => '<hr class="markedHr" />';
 
 renderer.list = (body, ordered) => {
   const tag = ordered ? 'ol' : 'ul';
@@ -31,9 +29,7 @@ renderer.list = (body, ordered) => {
 
 renderer.listitem = text => `<li class="markedLi">${text}</li>`;
 
-renderer.paragraph = text => {
-  return `<div class="markedNormal">${text}</div>`;
-};
+renderer.paragraph = text => `<div class="markedNormal">${text}</div>`;
 
 // table
 // todo A new feature
@@ -52,7 +48,7 @@ renderer.codespan = text => `<code class="markedCodeSpan">${text}</code>`;
 /******************** Initialize marked *******************/
 marked.setOptions({
   // todo settings of `marked`
-  renderer: renderer,
+  renderer,
   gfm: true,
   tables: true,
   breaks: false,

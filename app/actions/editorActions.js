@@ -2,7 +2,7 @@
  * Created by MattZo on 2018/3/22
  */
 // @flow
-import { dispatchType } from 'actions/actionTypes';
+import type { dispatchType } from 'actions/actionTypes';
 
 export type cursorPos = {
   ch: number,

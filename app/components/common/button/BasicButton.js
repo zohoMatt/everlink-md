@@ -15,19 +15,19 @@ type Props = {
 const BasicButton = (props: Props) => {
   const { width, text, disabled, onClick } = props;
 
-  return <button
+  return (<button
     className={styles.normalBtn}
     style={{ width }}
     disabled={disabled}
     onClick={onClick}
-  >{ text }</button>;
+  >{ text }</button>);
 };
 
 BasicButton.defaultProps = {
   width: '150px',
   text: 'A lonely button',
   disabled: false,
-  onClick: _ => null
+  onClick: () => null
 };
 
 export default BasicButton;

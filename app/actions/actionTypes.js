@@ -8,5 +8,5 @@ export type actionType = {
   payload?: any
 };
 export type dispatchType = actionType => void;
-export type dispatchCreator = dispatchType => void
+export type dispatchCreator = dispatchType => void;
 

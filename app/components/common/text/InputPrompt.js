@@ -6,11 +6,9 @@ import React from 'react';
 import styles from './InputPrompt.scss';
 
 
-const InputPrompt = ({ label, width }) => {
-  return (
-    <div className={styles.label} style={{ width }}>{ label }</div>
-  )
-};
+const InputPrompt = ({ label, width }) => (
+  <div className={styles.label} style={{ width }}>{ label }</div>
+  );
 
 export default InputPrompt;
 

@@ -2,14 +2,13 @@
  * Created by Zoho on 16/9/29.
  */
 // @flow
-import React from 'react';
+import * as React from 'react';
 
-import type { Children } from 'react';
 import styles from './ActionPanel.scss';
 
 type Props = {
   idName: string,
-  children: Children
+  children: React.Node
 };
 
 const EditorActionPanel = ({ idName, children }: Props) => (

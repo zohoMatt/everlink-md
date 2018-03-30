@@ -6,11 +6,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
 
+import ButtonTypes from 'utils/fontMap';
 import styles from './PreviewWindow.scss';
 
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
-import ButtonTypes from 'utils/fontMap';
 
 type Props = {
   compiledContent: string

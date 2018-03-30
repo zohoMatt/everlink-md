@@ -1,10 +1,10 @@
 /**
  * Created by Zoho on 16/9/28.
  */
+import { COMPILE_MARKDOWN } from 'actions/compileMdAction';
+
 import marked from '../utils/markedConfig';
 import INITIAL_STATE from '../store/initial';
-
-import { COMPILE_MARKDOWN } from 'actions/compileMdAction';
 
 /**
  * @action.type:

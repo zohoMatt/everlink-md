@@ -6,16 +6,21 @@ import React from 'react';
 
 import styles from './BasicInput.scss';
 
-class BasicInput extends React.Component {
-  props: {
-    placeholder: string,
-    onChange: any => void,
-    width: string
-  };
+type Props = {
+  placeholder: string,
+  onChange: (SyntheticInputEvent<HTMLInputElement>) => void,
+  width: string
+};
+
+type State = {
+  selfValue: string
+};
+
+class BasicInput extends React.Component<Props, State> {
 
   static defaultProps = {
     placeholder: 'Please type in',
-    onChange: _ => null,
+    onChange: () => null,
     width: '200px'
   };
 
@@ -24,8 +29,7 @@ class BasicInput extends React.Component {
   };
 
   /******************** Methods *******************/
-  updateChange(event) {
-    event.preventDefault();
+  updateChange(event: SyntheticInputEvent<HTMLInputElement>) {
     this.setState({ ...this.state, selfValue: event.target.value });
     this.props.onChange(event);
   }

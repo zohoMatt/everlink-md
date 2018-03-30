@@ -2,28 +2,34 @@
  * Created by MattZo on 2018/3/7
  */
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 
 import ModalContainer from 'components/MainPage/ModalContainer';
 import BasicInput from 'components/common/input/BasicInput';
 import BasicButton from 'components/common/button/BasicButton';
 import InputPrompt from 'components/common/text/InputPrompt';
-import ButtonTypes from 'utils/fontMap';
+import toModifyCode from 'containers/HOC/toModfyCode';
 
+import ButtonTypes from 'utils/fontMap';
 import styles from './AddLinkModal.scss';
 import commonStyles from './common/common.scss';
 
-import toModifyCode from 'containers/HOC/toModfyCode';
+type Props = {
+  insertCode: string => void,
+  toggleModal: string | boolean => void
+};
 
-class AddLinkModal extends React.Component {
-  props: {
-    insertCode: string => void,
-    toggleModal: string | boolean => void
-  };
+type State = {
+  cachedText: string,
+  cachedUrl: string,
+  cachedCode: string
+};
+
+class AddLinkModal extends Component<Props, State> {
 
   static defaultProps = {
-    insertCode: _ => null,
-    toggleModal: _ => null
+    insertCode: () => null,
+    toggleModal: () => null
   };
 
   state = {
@@ -63,9 +69,6 @@ class AddLinkModal extends React.Component {
   }
 
   render() {
-    const { insertCode } = this.props;
-    const { cachedCode } = this.state;
-
     const labelWidth = '100px';
     return (
       <ModalContainer typeName={ButtonTypes.InsertLinkButton} posStyles={{ height: '350px' }} >

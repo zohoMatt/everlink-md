@@ -1,11 +1,8 @@
 // @flow
 import React, { Component } from 'react';
-import type { Children } from 'react';
+import type { Node } from 'react';
 
-export default class App extends Component {
-  props: {
-    children: Children
-  };
+export default class App extends Component<{ children: Node }> {
 
   render() {
     return (

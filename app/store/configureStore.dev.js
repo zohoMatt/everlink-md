@@ -47,7 +47,7 @@ const configureStore = (initialState) => {
   const enhancer = composeEnhancers(...enhancers);
 
   // Create Store
-    const store = createStore(rootReducer, initialState, enhancer);
+  const store = createStore(rootReducer, initialState, enhancer);
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
