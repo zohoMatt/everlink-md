@@ -16,13 +16,13 @@ import commonStyles from './common/common.scss';
 
 type Props = {
   insertCode: string => void,
-  toggleModal: string | boolean => void
+  toggleModal: (string | boolean) => void
 };
 
 type State = {
-  cachedText: string,
-  cachedUrl: string,
-  cachedCode: string
+  cachedText?: string,
+  cachedUrl?: string,
+  cachedCode?: string
 };
 
 class AddLinkModal extends Component<Props, State> {
@@ -62,7 +62,7 @@ class AddLinkModal extends Component<Props, State> {
     });
   }
 
-  insertHandler(event) {
+  insertHandler() {
     const { toggleModal, insertCode } = this.props;
     toggleModal(false);
     insertCode(this.state.cachedCode);

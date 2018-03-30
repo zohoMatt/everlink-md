@@ -2,8 +2,11 @@
 import React, { Component } from 'react';
 import type { Node } from 'react';
 
-export default class App extends Component<{ children: Node }> {
+type Props = {
+  children: Node
+};
 
+export default class App extends Component<Props> {
   render() {
     return (
       <div>

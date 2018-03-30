@@ -7,22 +7,27 @@ import InputPrompt from 'components/common/text/InputPrompt';
 import BasicInput from 'components/common/input/BasicInput';
 import BasicButton from 'components/common/button/BasicButton';
 import ModalContainer from 'components/MainPage/ModalContainer';
+import toModifyCode from 'containers/HOC/toModfyCode';
 
 import ButtonTypes from 'utils/fontMap';
 import styles from './InsertImageModal.scss';
 import commonStyles from './common/common.scss';
 
-import toModifyCode from 'containers/HOC/toModfyCode';
+type Props = {
+  insertCode: string => void,
+  toggleModal: string | boolean => void
+};
 
-class InsertImageModal extends React.Component {
-  props: {
-    insertCode: string => void,
-    toggleModal: string | boolean => void
-  };
+type State = {
+  cachedText?: string,
+  cachedUrl?: string,
+  cachedCode?: string
+};
 
+class InsertImageModal extends React.Component<Props, State> {
   static defaultProps = {
-    insertCode: _ => null,
-    toggleModal: _ => null
+    insertCode: () => null,
+    toggleModal: () => null
   };
 
   state = {

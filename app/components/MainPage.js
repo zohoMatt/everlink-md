@@ -3,6 +3,9 @@
  */
 import React from 'react';
 
+import ButtonTypes from 'utils/fontMap';
+
+import toToggleModal from 'containers/HOC/toToggleModal';
 import MarkdownEditor from './MainPage/MarkdownEditor';
 import PreviewWindow from './MainPage/PreviewWindow';
 import AddLinkModal from './MainPage/modals/AddLinkModal';
@@ -10,10 +13,8 @@ import InsertImageModal from './MainPage/modals/InsertImageModal';
 import SyncModal from './MainPage/modals/SyncModal';
 import SaveModal from './MainPage/modals/SaveModal';
 import SettingModal from './MainPage/modals/SettingModal';
-import toToggleModal from 'containers/HOC/toToggleModal';
 
 import styles from './MainPage.scss';
-import ButtonTypes from 'utils/fontMap';
 
 
 const modals = [
@@ -24,7 +25,11 @@ const modals = [
   { type: ButtonTypes.PreferenceSettingButton, component: <SettingModal /> }
 ];
 
-class MainPage extends React.Component {
+type Props = {
+  visibleModal: string
+};
+
+class MainPage extends React.Component<Props> {
 
   static defaultProps = {
     visibleModal: ''

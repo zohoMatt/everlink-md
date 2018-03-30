@@ -13,7 +13,7 @@ type Props = {
 };
 
 type State = {
-  selfValue: string
+  selfValue?: string
 };
 
 class BasicInput extends React.Component<Props, State> {
