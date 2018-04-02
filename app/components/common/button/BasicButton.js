@@ -6,10 +6,10 @@ import React from 'react';
 import styles from './BasicButton.scss';
 
 type Props = {
-  width: string,
-  text: string,
-  disabled: boolean,
-  onClick: Event => void
+  width?: string,
+  text?: string,
+  disabled?: boolean,
+  onClick?: Event => void
 };
 
 const BasicButton = (props: Props) => {
