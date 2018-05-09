@@ -4,4 +4,5 @@ export default {
   InsertPictureButton: 'pic',
   PreferenceSettingButton: 'set',
   SyncEvernoteButton: 'sync',
+  OpenFileButton: 'open'
 };
