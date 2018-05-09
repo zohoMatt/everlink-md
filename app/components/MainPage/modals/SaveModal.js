@@ -13,6 +13,8 @@ import BasicButton from 'components/common/button/BasicButton';
 
 import styles from './common/common.scss';
 
+const fse = require('fs-extra');
+
 class SaveModal extends React.Component {
 
   componentWillMount() {
@@ -20,7 +22,7 @@ class SaveModal extends React.Component {
 
   /******************** Helpers *******************/
   writeMdFile(path) {
-
+    fse.outputFile(path, this.props.html);
   }
 
   /******************** Handlers *******************/
@@ -33,6 +35,7 @@ class SaveModal extends React.Component {
       ]
     };
     remote.dialog.showSaveDialog(options, filename => {
+      console.log(filename);
       this.writeMdFile(filename);
     });
   }
