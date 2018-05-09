@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import uuid from 'uuid';
 
 import ButtonTypes from 'utils/fontMap';
-import styles from './PreviewWindow.scss';
+import previewStyles from '../../externals/previewConfigs/previewStyleLoader';
 
 import ActionPanel from './ActionPanel';
 import PanelButton from './ActionPanel/PanelButton';
@@ -15,6 +15,9 @@ import PanelButton from './ActionPanel/PanelButton';
 type Props = {
   compiledContent: string
 };
+
+const appliedStyle = previewStyles.Default;
+
 const PreviewWindow = ({ compiledContent }: Props) => {
   const buttonGroup = [
     <PanelButton iconName={ButtonTypes.OpenFileButton} key={uuid.v1()} />,
@@ -23,7 +26,7 @@ const PreviewWindow = ({ compiledContent }: Props) => {
     <PanelButton iconName={ButtonTypes.PreferenceSettingButton} key={uuid.v1()} />
   ];
   return (
-    <div className={styles.mdPreview}>
+    <div className={appliedStyle.mdPreview}>
       <ActionPanel
         idName="preview"
       >{ buttonGroup }</ActionPanel>
