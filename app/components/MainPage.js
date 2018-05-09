@@ -13,6 +13,7 @@ import InsertImageModal from './MainPage/modals/InsertImageModal';
 import SyncModal from './MainPage/modals/SyncModal';
 import SaveModal from './MainPage/modals/SaveModal';
 import SettingModal from './MainPage/modals/SettingModal';
+import OpenFileModal from './MainPage/modals/OpenFileModal';
 
 import styles from './MainPage.scss';
 
@@ -22,6 +23,7 @@ const modals = [
   { type: ButtonTypes.InsertPictureButton, component: <InsertImageModal /> },
   { type: ButtonTypes.SyncEvernoteButton, component: <SyncModal /> },
   { type: ButtonTypes.ExportFileButton, component: <SaveModal /> },
+  { type: ButtonTypes.OpenFileButton, component: <OpenFileModal /> },
   { type: ButtonTypes.PreferenceSettingButton, component: <SettingModal /> }
 ];
 
