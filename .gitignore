@@ -48,5 +48,9 @@ dll
 main.js
 main.js.map
 
+# Cached & generated files
+app/cached
+app/exported
+
 .idea
 npm-debug.log.*
