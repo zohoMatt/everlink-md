@@ -32,7 +32,8 @@ class SaveModal extends React.Component {
       buttonLabel: 'Save',
       filters: [
         { name: '.md files', extensions: ['md'] }
-      ]
+      ],
+      timeout: 60000
     };
     remote.dialog.showSaveDialog(options, filename => {
       console.log(filename);
