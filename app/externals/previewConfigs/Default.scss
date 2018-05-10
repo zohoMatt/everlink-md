@@ -51,11 +51,16 @@
 
     code {
       background: none;
+      width: 100%;
     }
   }
 
   math {
     font-family: "Times New Roman", serif;
+  }
+
+  img {
+    max-width: 100%;
   }
 }
 
