@@ -9,5 +9,53 @@
 
   h1 {
   }
+
+  p {
+    line-height: 1.4em;
+  }
+
+  strong {
+    font-style: italic;
+  }
+
+  em {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  th {
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+  }
+
+  td {
+    border-bottom: 1px solid lightgray;
+  }
+
+  th,
+  td {
+    padding: 3px 5px;
+  }
+
+  code {
+    background: rgba(231, 231, 231, 0.69);
+    padding: 0 5px;
+    margin: 1px 0;
+    font-family: Monaco, sans-serif;
+  }
+
+  pre {
+    background: rgba(173, 232, 213, 0.46);
+    padding: 10px 20px;
+    font-size: 0.85em;
+
+    code {
+      background: none;
+    }
+  }
+
+  math {
+    font-family: "Times New Roman", serif;
+  }
 }
 

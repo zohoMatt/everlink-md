@@ -29,14 +29,14 @@ renderer.list = (body, ordered) => {
 
 renderer.listitem = text => `<li class="markedLi">${text}</li>`;
 
-renderer.paragraph = text => `<div class="markedNormal">${text}</div>`;
+renderer.paragraph = text => `<p class="markedNormal">${text}</p>`;
 
 // table
 // todo A new feature
 
 /******************** Inline level *******************/
 renderer.strong = text => `<strong class="markedStrong">${text}</strong>`;
-renderer.em = text => `<strong class="markedEm">${text}</strong>`;
+renderer.em = text => `<em class="markedEm">${text}</em>`;
 renderer.codespan = text => `<code class="markedCodeSpan">${text}</code>`;
 // br: omitted
 // del: todo
