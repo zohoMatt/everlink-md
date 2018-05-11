@@ -32,12 +32,17 @@ class PreviewWindow extends React.Component<Props, State> {
     changeScrollPos: () => null
   };
 
-  shouldComponentUpdate(nextProps) {
-    const { scrollTopPercent } = nextProps;
-    console.log(scrollTopPercent);
-    return true;
+  constructor(props) {
+    super(props);
+    this.scrollWindow = React.createRef();
   }
 
+  shouldComponentUpdate(nextProps) {
+    const { scrollTopPercent } = nextProps;
+    const windowDOM = this.scrollWindow.current;
+    windowDOM.scrollTop = scrollTopPercent * windowDOM.scrollHeight;
+    return true;
+  }
 
   render() {
     const { compiledContent, scrollTopPercent, changeScrollPos } = this.props;
@@ -54,7 +59,7 @@ class PreviewWindow extends React.Component<Props, State> {
     };
 
     return (
-      <div className={appliedStyle.mdPreview} onScroll={scrollHandler}>
+      <div className={appliedStyle.mdPreview} onScroll={scrollHandler} ref={this.scrollWindow}>
         <ActionPanel
           idName="preview"
         >{ buttonGroup }</ActionPanel>
