@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     compiled: '<h1>EverlinkMD</h1>',
   },
   cursor: { anchor: { ch: 0, line: 1 }, head: { ch: 0, line: 1 } },
+  scrollPercent: 0,
   modalType: '',
   modalCachedCode: ''
 };

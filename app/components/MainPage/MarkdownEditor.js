@@ -12,6 +12,7 @@ import { compileContent } from 'actions/compileMdAction';
 import { ready2Insert } from 'actions/modalActions';
 import type { cursorData, cursorPos } from 'actions/editorActions';
 import { setCursorSelection } from 'actions/editorActions';
+import { adjustPreviewScrollPercent } from 'actions/previewActions';
 import ButtonTypes from 'utils/fontMap';
 
 import styles from './MarkdownEditor.scss';
@@ -23,11 +24,12 @@ require('codemirror/mode/markdown/markdown');
 
 type Props = {
   compile: string => void,
-  setSelection: cursorPos => void,
+  setSelection: cursorData => void,
   code: string,
   cursor: cursorData,
   cachedCode: string,
-  setCached: string => void
+  setCached: string => void,
+  changeScrollPos: number => void
   // selection: cursorData[],
   // cursor: cursorPos
 };
@@ -42,7 +44,8 @@ class MarkdownEditor extends React.Component<Props, State> {
     code: '',
     cursor: null,
     cachedCode: '',
-    setCached: () => null
+    setCached: () => null,
+    changeScrollPos: () => null
   };
 
   componentWillUpdate(nextProps) {
@@ -64,9 +67,14 @@ class MarkdownEditor extends React.Component<Props, State> {
     this.props.setSelection({ head, anchor });
   }
 
+  scrollHandler(editor, data) {
+    const { top, height } = data;
+    this.props.changeScrollPos(top / height);
+  }
+
   render() {
     const { compile, code } = this.props;
-    const { updateSelection } = this;
+    const { updateSelection, scrollHandler } = this;
 
     const codeMirrorOptions = {
       lineNumbers: false,
@@ -92,6 +100,7 @@ class MarkdownEditor extends React.Component<Props, State> {
           onBeforeChange={(editor, data, newCode) => compile(newCode)}
           options={codeMirrorOptions}
           onSelection={updateSelection.bind(this)}
+          onScroll={scrollHandler.bind(this)}
         />
       </div>
     );
@@ -107,6 +116,7 @@ export default connect(
   dispatch => bindActionCreators({
     compile: compileContent,
     setSelection: setCursorSelection,
-    setCached: ready2Insert
+    setCached: ready2Insert,
+    changeScrollPos: adjustPreviewScrollPercent
   }, dispatch)
 )(MarkdownEditor);
