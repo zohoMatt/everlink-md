@@ -40,7 +40,9 @@ renderer.em = text => `<em class="markedEm">${text}</em>`;
 renderer.codespan = text => `<code class="markedCodeSpan">${text}</code>`;
 // br: omitted
 // del: todo
-// link: todo
+// link
+renderer.link = (href, title, text) =>
+  `<a class="markedLink" href="${href}" title="${title}" target="_blank">${text}</a>`;
 // image: todo
 // text: todo
 
