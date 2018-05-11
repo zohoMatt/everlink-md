@@ -50,8 +50,10 @@
     font-size: 0.85em;
 
     code {
-      background: none;
+      display: block;
       width: 100%;
+      background: none;
+      overflow-x: auto;
     }
   }
 
