@@ -79,7 +79,7 @@ class MarkdownEditor extends React.Component<Props, State> {
     const codeMirrorOptions = {
       lineNumbers: false,
       mode: 'markdown',
-      theme: 'solarized-dark',
+      theme: 'solarized',
       lineWrapping: true
     };
     const buttonGroup = [
