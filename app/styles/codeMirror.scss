@@ -1,7 +1,8 @@
 /**======================================================**/
 /**                      CodeMirror                      **/
 /**======================================================**/
-@import "../node_modules/codemirror/lib/codemirror.css";
+@import "~codemirror/lib/codemirror.css";
+@import "~codemirror/theme/solarized.css";
 
 .react-codemirror2 {
   // todo Leave padding for the action panel
