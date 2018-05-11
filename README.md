@@ -12,45 +12,41 @@ This editor is not fully functional yet.
 #### Development
 1. Just `yarn` to install all packages.  
 2. `yarn run dev` to start hot server and live-loading.
-> If main window fails, remember to **check the Internet connection** to Google.
-Because in development mode we need to download React & redux dev-tools for chrome.
+> If main window fails, remember to **check the Internet connection** to Facebook.
+Because in development mode React & redux dev-tools for chrome need to be downloaded from Facebook.
 
 #### Distribution
 * MacOS
-
 * Windows
 
 
 ---
 ### Future Plans
 
-#### As a Markdown editor
-**Basic**
+#### Editor
 
 * Sync-scrolling for editor and preview window.
-* Quick-helper buttons, for adding content using GUI.
-* Save, and export to PDF and picture.
+* Searching and replacement
+* Styles of code editor
 
-**Advanced**
+#### Preview window
 
+* Open local `.md` files
+* Recent file list  
+* Rendering styles
+* Support for key shortcuts.
 * Support for quick searching.
 * Support for code syntax highlight.
 * Support for MathJax.
 * Support for [TOC].
 * Support for flow chart and sequence diagrams.
 * Support for foot notations.
-* View settings for window size, themes, etc.
-* Support for key shortcuts.
 
-#### As a note generator of Evernote
-**Basic**
+#### Synchronization with EverNote
 
-* Find an easy and elegant way of authorization.
-* Syntax support for notebooks, tags, notes, etc.
-
-**Advanced**
-
-* Handling content conflict.
+* EverNote SDK authorization.
+* Configuration of note information details: notebook, tags, notes, etc.
+* Handling conflicts.
 
 
 ---
