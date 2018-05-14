@@ -8,6 +8,7 @@ const renderer = new marked.Renderer();
 /**======================================================**/
 /**           Overwrite renderer's method                **/
 /**======================================================**/
+// SEE marked.js extensibility (https://marked.js.org/#/USING_PRO.md)
 /******************** Block level *******************/
 // code
 // todo A new feature

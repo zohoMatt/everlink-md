@@ -22,7 +22,7 @@ class SaveModal extends React.Component {
 
   /******************** Helpers *******************/
   writeMdFile(path) {
-    fse.outputFile(path, this.props.html);
+    if (path) fse.outputFile(path, this.props.html);
   }
 
   /******************** Handlers *******************/
@@ -36,7 +36,6 @@ class SaveModal extends React.Component {
       timeout: 60000
     };
     remote.dialog.showSaveDialog(options, filename => {
-      console.log(filename);
       this.writeMdFile(filename);
     });
   }
