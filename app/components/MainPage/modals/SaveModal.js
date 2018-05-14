@@ -4,7 +4,7 @@
 // @flow
 import React from 'react';
 import pdf from 'html-pdf';
-import { dialog, ipcRenderer, remote } from 'electron';
+import { remote } from 'electron';
 import { connect } from 'react-redux';
 
 import ModalContainer from 'components/MainPage/ModalContainer';
