@@ -3,19 +3,19 @@
  */
 //@flow
 import React from 'react';
-import type {Node, Element} from 'react';
+import type { Node } from 'react';
 
 import toToggleModal from 'containers/HOC/toToggleModal';
 import styles from './ModalContainer.scss';
 
 type Props = {
   children: Node,
-  toggleModal: Element => void,
-  posStyles: object
+  toggleModal: Node => void,
+  posStyles: { [string]: string }
 };
 
 type State = {
-}
+};
 
 class ModalContainer extends React.Component<Props, State> {
   static defaultProps = {
