@@ -59,7 +59,7 @@ class InsertImageModal extends React.Component<Props, State> {
 
   /******************** React APIs *******************/
   render() {
-    const { path } = this.state;
+    const { cachedUrl } = this.state;
 
     const labelWidth = '110px';
     return (
@@ -75,7 +75,7 @@ class InsertImageModal extends React.Component<Props, State> {
             <BasicInput width={'350px'} onChange={event => this.updateCache(event, 'cachedUrl')} />
           </div>
           <div className={styles.imageContainer}>
-            <img src={path} />
+            <img width={'100%'} height={'100%'} src={cachedUrl} />
           </div>
         </div>
         <div className={commonStyles.btnContainer}>
