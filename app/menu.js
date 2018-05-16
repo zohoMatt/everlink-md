@@ -59,9 +59,12 @@ export default class MenuBuilder {
       label: 'File',
       submenu: [
         { label: 'New...', accelerator: 'Command+N', selector: '' },
+        { type: 'separator' },
         { label: 'Save', accelerator: 'Command+S', selector: '' },
         { label: 'Save as...', accelerator: 'Shift+Command+S', selector: '' },
-        { label: 'Export', accelerator: 'Command+E', selector: '' }
+        { label: 'Export', accelerator: 'Command+E', selector: '' },
+        { type: 'separator' },
+        { label: 'Preferences', accelerator: 'Command+,', selector: '' }
       ]
     };
     const subMenuEdit = {
