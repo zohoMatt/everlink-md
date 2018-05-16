@@ -54,6 +54,16 @@ export default class MenuBuilder {
         { label: 'Quit', accelerator: 'Command+Q', click: () => { app.quit(); } }
       ]
     };
+    // mustdo Menu behaviours
+    const subMenuFile = {
+      label: 'File',
+      submenu: [
+        { label: 'New...', accelerator: 'Command+N', selector: '' },
+        { label: 'Save', accelerator: 'Command+S', selector: '' },
+        { label: 'Save as...', accelerator: 'Shift+Command+S', selector: '' },
+        { label: 'Export', accelerator: 'Command+E', selector: '' }
+      ]
+    };
     const subMenuEdit = {
       label: 'Edit',
       submenu: [
@@ -80,6 +90,9 @@ export default class MenuBuilder {
         { label: 'Toggle Full Screen', accelerator: 'Ctrl+Command+F', click: () => { this.mainWindow.setFullScreen(!this.mainWindow.isFullScreen()); } }
       ]
     };
+    const subMenuView = process.env.NODE_ENV === 'development'
+      ? subMenuViewDev
+      : subMenuViewProd;
     const subMenuWindow = {
       label: 'Window',
       submenu: [
@@ -99,12 +112,9 @@ export default class MenuBuilder {
       ]
     };
 
-    const subMenuView = process.env.NODE_ENV === 'development'
-      ? subMenuViewDev
-      : subMenuViewProd;
-
     return [
       subMenuAbout,
+      subMenuFile,
       subMenuEdit,
       subMenuView,
       subMenuWindow,
